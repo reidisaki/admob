@@ -1,0 +1,345 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CCBF466816A546EF002EEC39 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCBF466716A546EF002EEC39 /* UIKit.framework */; };
+		CCBF466A16A546EF002EEC39 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCBF466916A546EF002EEC39 /* Foundation.framework */; };
+		CCBF466C16A546EF002EEC39 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCBF466B16A546EF002EEC39 /* CoreGraphics.framework */; };
+		CCBF467216A546EF002EEC39 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CCBF467016A546EF002EEC39 /* InfoPlist.strings */; };
+		CCBF467416A546EF002EEC39 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBF467316A546EF002EEC39 /* main.m */; };
+		CCBF467816A546EF002EEC39 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBF467716A546EF002EEC39 /* AppDelegate.m */; };
+		CCBF467A16A546EF002EEC39 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CCBF467916A546EF002EEC39 /* Default.png */; };
+		CCBF467C16A546EF002EEC39 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCBF467B16A546EF002EEC39 /* Default@2x.png */; };
+		CCBF467E16A546EF002EEC39 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCBF467D16A546EF002EEC39 /* Default-568h@2x.png */; };
+		CCBF468516A547E0002EEC39 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCBF468416A547E0002EEC39 /* CoreMedia.framework */; };
+		CCBF468716A547F8002EEC39 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CCBF468616A547F8002EEC39 /* libxml2.dylib */; };
+		CCBF468916A54808002EEC39 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCBF468816A54808002EEC39 /* QuartzCore.framework */; };
+		CCBF468B16A5480F002EEC39 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCBF468A16A5480F002EEC39 /* MediaPlayer.framework */; };
+		CCBF468D16A54816002EEC39 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCBF468C16A54816002EEC39 /* CoreLocation.framework */; };
+		CCBF468F16A54825002EEC39 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCBF468E16A54825002EEC39 /* AVFoundation.framework */; };
+		CCBF469116A5482C002EEC39 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCBF469016A5482C002EEC39 /* MessageUI.framework */; };
+		CCBF469316A54834002EEC39 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCBF469216A54834002EEC39 /* AssetsLibrary.framework */; };
+		CCBF469516A5483C002EEC39 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCBF469416A5483C002EEC39 /* EventKit.framework */; };
+		CCBF469716A5484F002EEC39 /* AdManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCBF469616A5484F002EEC39 /* AdManager.framework */; };
+		CCBF469A16A5488C002EEC39 /* SimpleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBF469916A5488C002EEC39 /* SimpleViewController.m */; };
+		CCBF46A416A54A80002EEC39 /* FWTimeline.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBF46A316A54A80002EEC39 /* FWTimeline.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		CCBF466316A546EF002EEC39 /* SimpleMidrollDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleMidrollDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCBF466716A546EF002EEC39 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CCBF466916A546EF002EEC39 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CCBF466B16A546EF002EEC39 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CCBF466F16A546EF002EEC39 /* SimpleMidrollDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SimpleMidrollDemo-Info.plist"; sourceTree = "<group>"; };
+		CCBF467116A546EF002EEC39 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CCBF467316A546EF002EEC39 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CCBF467516A546EF002EEC39 /* SimpleMidrollDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SimpleMidrollDemo-Prefix.pch"; sourceTree = "<group>"; };
+		CCBF467616A546EF002EEC39 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		CCBF467716A546EF002EEC39 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		CCBF467916A546EF002EEC39 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		CCBF467B16A546EF002EEC39 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		CCBF467D16A546EF002EEC39 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		CCBF468416A547E0002EEC39 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		CCBF468616A547F8002EEC39 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		CCBF468816A54808002EEC39 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		CCBF468A16A5480F002EEC39 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		CCBF468C16A54816002EEC39 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		CCBF468E16A54825002EEC39 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		CCBF469016A5482C002EEC39 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		CCBF469216A54834002EEC39 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		CCBF469416A5483C002EEC39 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		CCBF469616A5484F002EEC39 /* AdManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AdManager.framework; sourceTree = "<group>"; };
+		CCBF469816A5488C002EEC39 /* SimpleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleViewController.h; sourceTree = "<group>"; };
+		CCBF469916A5488C002EEC39 /* SimpleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleViewController.m; sourceTree = "<group>"; };
+		CCBF46A216A54A80002EEC39 /* FWTimeline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FWTimeline.h; sourceTree = "<group>"; };
+		CCBF46A316A54A80002EEC39 /* FWTimeline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FWTimeline.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CCBF466016A546EF002EEC39 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCBF469516A5483C002EEC39 /* EventKit.framework in Frameworks */,
+				CCBF469316A54834002EEC39 /* AssetsLibrary.framework in Frameworks */,
+				CCBF469116A5482C002EEC39 /* MessageUI.framework in Frameworks */,
+				CCBF468F16A54825002EEC39 /* AVFoundation.framework in Frameworks */,
+				CCBF468516A547E0002EEC39 /* CoreMedia.framework in Frameworks */,
+				CCBF468D16A54816002EEC39 /* CoreLocation.framework in Frameworks */,
+				CCBF468B16A5480F002EEC39 /* MediaPlayer.framework in Frameworks */,
+				CCBF468916A54808002EEC39 /* QuartzCore.framework in Frameworks */,
+				CCBF468716A547F8002EEC39 /* libxml2.dylib in Frameworks */,
+				CCBF466816A546EF002EEC39 /* UIKit.framework in Frameworks */,
+				CCBF466A16A546EF002EEC39 /* Foundation.framework in Frameworks */,
+				CCBF466C16A546EF002EEC39 /* CoreGraphics.framework in Frameworks */,
+				CCBF469716A5484F002EEC39 /* AdManager.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CCBF465816A546EF002EEC39 = {
+			isa = PBXGroup;
+			children = (
+				CCBF466D16A546EF002EEC39 /* SimpleMidrollDemo */,
+				CCBF466616A546EF002EEC39 /* Frameworks */,
+				CCBF466416A546EF002EEC39 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CCBF466416A546EF002EEC39 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CCBF466316A546EF002EEC39 /* SimpleMidrollDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CCBF466616A546EF002EEC39 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CCBF469616A5484F002EEC39 /* AdManager.framework */,
+				CCBF469416A5483C002EEC39 /* EventKit.framework */,
+				CCBF469216A54834002EEC39 /* AssetsLibrary.framework */,
+				CCBF469016A5482C002EEC39 /* MessageUI.framework */,
+				CCBF468E16A54825002EEC39 /* AVFoundation.framework */,
+				CCBF468C16A54816002EEC39 /* CoreLocation.framework */,
+				CCBF468A16A5480F002EEC39 /* MediaPlayer.framework */,
+				CCBF468816A54808002EEC39 /* QuartzCore.framework */,
+				CCBF468616A547F8002EEC39 /* libxml2.dylib */,
+				CCBF468416A547E0002EEC39 /* CoreMedia.framework */,
+				CCBF466716A546EF002EEC39 /* UIKit.framework */,
+				CCBF466916A546EF002EEC39 /* Foundation.framework */,
+				CCBF466B16A546EF002EEC39 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CCBF466D16A546EF002EEC39 /* SimpleMidrollDemo */ = {
+			isa = PBXGroup;
+			children = (
+				CCBF467616A546EF002EEC39 /* AppDelegate.h */,
+				CCBF467716A546EF002EEC39 /* AppDelegate.m */,
+				CCBF466E16A546EF002EEC39 /* Supporting Files */,
+				CCBF469816A5488C002EEC39 /* SimpleViewController.h */,
+				CCBF469916A5488C002EEC39 /* SimpleViewController.m */,
+				CCBF46A216A54A80002EEC39 /* FWTimeline.h */,
+				CCBF46A316A54A80002EEC39 /* FWTimeline.m */,
+			);
+			path = SimpleMidrollDemo;
+			sourceTree = "<group>";
+		};
+		CCBF466E16A546EF002EEC39 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CCBF466F16A546EF002EEC39 /* SimpleMidrollDemo-Info.plist */,
+				CCBF467016A546EF002EEC39 /* InfoPlist.strings */,
+				CCBF467316A546EF002EEC39 /* main.m */,
+				CCBF467516A546EF002EEC39 /* SimpleMidrollDemo-Prefix.pch */,
+				CCBF467916A546EF002EEC39 /* Default.png */,
+				CCBF467B16A546EF002EEC39 /* Default@2x.png */,
+				CCBF467D16A546EF002EEC39 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CCBF466216A546EF002EEC39 /* SimpleMidrollDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CCBF468116A546EF002EEC39 /* Build configuration list for PBXNativeTarget "SimpleMidrollDemo" */;
+			buildPhases = (
+				CCBF465F16A546EF002EEC39 /* Sources */,
+				CCBF466016A546EF002EEC39 /* Frameworks */,
+				CCBF466116A546EF002EEC39 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SimpleMidrollDemo;
+			productName = SimpleMidrollDemo;
+			productReference = CCBF466316A546EF002EEC39 /* SimpleMidrollDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CCBF465A16A546EF002EEC39 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = FreeWheel;
+			};
+			buildConfigurationList = CCBF465D16A546EF002EEC39 /* Build configuration list for PBXProject "SimpleMidrollDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CCBF465816A546EF002EEC39;
+			productRefGroup = CCBF466416A546EF002EEC39 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CCBF466216A546EF002EEC39 /* SimpleMidrollDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CCBF466116A546EF002EEC39 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCBF467216A546EF002EEC39 /* InfoPlist.strings in Resources */,
+				CCBF467A16A546EF002EEC39 /* Default.png in Resources */,
+				CCBF467C16A546EF002EEC39 /* Default@2x.png in Resources */,
+				CCBF467E16A546EF002EEC39 /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CCBF465F16A546EF002EEC39 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCBF467416A546EF002EEC39 /* main.m in Sources */,
+				CCBF467816A546EF002EEC39 /* AppDelegate.m in Sources */,
+				CCBF469A16A5488C002EEC39 /* SimpleViewController.m in Sources */,
+				CCBF46A416A54A80002EEC39 /* FWTimeline.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		CCBF467016A546EF002EEC39 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CCBF467116A546EF002EEC39 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CCBF467F16A546EF002EEC39 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CCBF468016A546EF002EEC39 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CCBF468216A546EF002EEC39 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SimpleMidrollDemo/SimpleMidrollDemo-Prefix.pch";
+				INFOPLIST_FILE = "SimpleMidrollDemo/SimpleMidrollDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		CCBF468316A546EF002EEC39 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SimpleMidrollDemo/SimpleMidrollDemo-Prefix.pch";
+				INFOPLIST_FILE = "SimpleMidrollDemo/SimpleMidrollDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CCBF465D16A546EF002EEC39 /* Build configuration list for PBXProject "SimpleMidrollDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CCBF467F16A546EF002EEC39 /* Debug */,
+				CCBF468016A546EF002EEC39 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CCBF468116A546EF002EEC39 /* Build configuration list for PBXNativeTarget "SimpleMidrollDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CCBF468216A546EF002EEC39 /* Debug */,
+				CCBF468316A546EF002EEC39 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CCBF465A16A546EF002EEC39 /* Project object */;
+}

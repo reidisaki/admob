@@ -1,4 +1,4 @@
-integration-demos
+FreeWheel Video Integration Demos
 =================
 
-Demo players and demo renderers for video integration
+Demo players and demo renderers for FreeWheel video integration.

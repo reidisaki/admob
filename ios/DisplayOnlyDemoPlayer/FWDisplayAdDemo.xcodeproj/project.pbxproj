@@ -1,0 +1,305 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8E648A1A15474CAE00C681A1 /* AdManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E648A1915474CAE00C681A1 /* AdManager.framework */; };
+		8EA3ACB01520FF8200C995D1 /* FWDisplayAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA3ACAF1520FF8200C995D1 /* FWDisplayAdViewController.m */; };
+		8EE9F8E81520EB06008094BA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EE9F8E71520EB06008094BA /* UIKit.framework */; };
+		8EE9F8EA1520EB06008094BA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EE9F8E91520EB06008094BA /* Foundation.framework */; };
+		8EE9F8EC1520EB06008094BA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EE9F8EB1520EB06008094BA /* CoreGraphics.framework */; };
+		8EE9F8F21520EB06008094BA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8EE9F8F01520EB06008094BA /* InfoPlist.strings */; };
+		8EE9F8F41520EB06008094BA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EE9F8F31520EB06008094BA /* main.m */; };
+		8EE9F8F81520EB06008094BA /* FWDisplayAdDemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EE9F8F71520EB06008094BA /* FWDisplayAdDemoAppDelegate.m */; };
+		8EE9F9011520EB6F008094BA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EE9F9001520EB6F008094BA /* QuartzCore.framework */; };
+		8EE9F9031520EB75008094BA /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EE9F9021520EB75008094BA /* libxml2.dylib */; };
+		8EE9F9051520EB7D008094BA /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EE9F9041520EB7D008094BA /* MediaPlayer.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		8E648A1915474CAE00C681A1 /* AdManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdManager.framework; path = FWDisplayAdDemo/AdManager/AdManager.framework; sourceTree = "<group>"; };
+		8EA3ACAE1520FF8200C995D1 /* FWDisplayAdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FWDisplayAdViewController.h; sourceTree = "<group>"; };
+		8EA3ACAF1520FF8200C995D1 /* FWDisplayAdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FWDisplayAdViewController.m; sourceTree = "<group>"; };
+		8EE9F8E31520EB06008094BA /* FWDisplayAdDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FWDisplayAdDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8EE9F8E71520EB06008094BA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		8EE9F8E91520EB06008094BA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8EE9F8EB1520EB06008094BA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		8EE9F8EF1520EB06008094BA /* FWDisplayAdDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FWDisplayAdDemo-Info.plist"; sourceTree = "<group>"; };
+		8EE9F8F11520EB06008094BA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8EE9F8F31520EB06008094BA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8EE9F8F51520EB06008094BA /* FWDisplayAdDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FWDisplayAdDemo-Prefix.pch"; sourceTree = "<group>"; };
+		8EE9F8F61520EB06008094BA /* FWDisplayAdDemoAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FWDisplayAdDemoAppDelegate.h; sourceTree = "<group>"; };
+		8EE9F8F71520EB06008094BA /* FWDisplayAdDemoAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FWDisplayAdDemoAppDelegate.m; sourceTree = "<group>"; };
+		8EE9F9001520EB6F008094BA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		8EE9F9021520EB75008094BA /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		8EE9F9041520EB7D008094BA /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8EE9F8E01520EB06008094BA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8E648A1A15474CAE00C681A1 /* AdManager.framework in Frameworks */,
+				8EE9F9051520EB7D008094BA /* MediaPlayer.framework in Frameworks */,
+				8EE9F9031520EB75008094BA /* libxml2.dylib in Frameworks */,
+				8EE9F9011520EB6F008094BA /* QuartzCore.framework in Frameworks */,
+				8EE9F8E81520EB06008094BA /* UIKit.framework in Frameworks */,
+				8EE9F8EA1520EB06008094BA /* Foundation.framework in Frameworks */,
+				8EE9F8EC1520EB06008094BA /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8EE9F8D81520EB05008094BA = {
+			isa = PBXGroup;
+			children = (
+				8E648A1915474CAE00C681A1 /* AdManager.framework */,
+				8EE9F9041520EB7D008094BA /* MediaPlayer.framework */,
+				8EE9F9021520EB75008094BA /* libxml2.dylib */,
+				8EE9F9001520EB6F008094BA /* QuartzCore.framework */,
+				8EE9F8ED1520EB06008094BA /* FWDisplayAdDemo */,
+				8EE9F8E61520EB06008094BA /* Frameworks */,
+				8EE9F8E41520EB06008094BA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8EE9F8E41520EB06008094BA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8EE9F8E31520EB06008094BA /* FWDisplayAdDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8EE9F8E61520EB06008094BA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8EE9F8E71520EB06008094BA /* UIKit.framework */,
+				8EE9F8E91520EB06008094BA /* Foundation.framework */,
+				8EE9F8EB1520EB06008094BA /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8EE9F8ED1520EB06008094BA /* FWDisplayAdDemo */ = {
+			isa = PBXGroup;
+			children = (
+				8EE9F8F61520EB06008094BA /* FWDisplayAdDemoAppDelegate.h */,
+				8EE9F8F71520EB06008094BA /* FWDisplayAdDemoAppDelegate.m */,
+				8EE9F8EE1520EB06008094BA /* Supporting Files */,
+				8EA3ACAE1520FF8200C995D1 /* FWDisplayAdViewController.h */,
+				8EA3ACAF1520FF8200C995D1 /* FWDisplayAdViewController.m */,
+			);
+			path = FWDisplayAdDemo;
+			sourceTree = "<group>";
+		};
+		8EE9F8EE1520EB06008094BA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8EE9F8EF1520EB06008094BA /* FWDisplayAdDemo-Info.plist */,
+				8EE9F8F01520EB06008094BA /* InfoPlist.strings */,
+				8EE9F8F31520EB06008094BA /* main.m */,
+				8EE9F8F51520EB06008094BA /* FWDisplayAdDemo-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8EE9F8E21520EB06008094BA /* FWDisplayAdDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8EE9F8FB1520EB06008094BA /* Build configuration list for PBXNativeTarget "FWDisplayAdDemo" */;
+			buildPhases = (
+				8EE9F8DF1520EB06008094BA /* Sources */,
+				8EE9F8E01520EB06008094BA /* Frameworks */,
+				8EE9F8E11520EB06008094BA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FWDisplayAdDemo;
+			productName = FWDisplayAdDemo;
+			productReference = 8EE9F8E31520EB06008094BA /* FWDisplayAdDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8EE9F8DA1520EB05008094BA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = FreeWheel;
+			};
+			buildConfigurationList = 8EE9F8DD1520EB05008094BA /* Build configuration list for PBXProject "FWDisplayAdDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 8EE9F8D81520EB05008094BA;
+			productRefGroup = 8EE9F8E41520EB06008094BA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8EE9F8E21520EB06008094BA /* FWDisplayAdDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8EE9F8E11520EB06008094BA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8EE9F8F21520EB06008094BA /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8EE9F8DF1520EB06008094BA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8EE9F8F41520EB06008094BA /* main.m in Sources */,
+				8EE9F8F81520EB06008094BA /* FWDisplayAdDemoAppDelegate.m in Sources */,
+				8EA3ACB01520FF8200C995D1 /* FWDisplayAdViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		8EE9F8F01520EB06008094BA /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8EE9F8F11520EB06008094BA /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8EE9F8F91520EB06008094BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8EE9F8FA1520EB06008094BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8EE9F8FC1520EB06008094BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/FWDisplayAdDemo\"",
+					"\"$(SRCROOT)/../../../../../integration/trunk/cocoa/build/Debug-output\"",
+					"\"$(SRCROOT)/FWDisplayAdDemo/AdManager\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FWDisplayAdDemo/FWDisplayAdDemo-Prefix.pch";
+				INFOPLIST_FILE = "FWDisplayAdDemo/FWDisplayAdDemo-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		8EE9F8FD1520EB06008094BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/FWDisplayAdDemo\"",
+					"\"$(SRCROOT)/../../../../../integration/trunk/cocoa/build/Debug-output\"",
+					"\"$(SRCROOT)/FWDisplayAdDemo/AdManager\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FWDisplayAdDemo/FWDisplayAdDemo-Prefix.pch";
+				INFOPLIST_FILE = "FWDisplayAdDemo/FWDisplayAdDemo-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8EE9F8DD1520EB05008094BA /* Build configuration list for PBXProject "FWDisplayAdDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8EE9F8F91520EB06008094BA /* Debug */,
+				8EE9F8FA1520EB06008094BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8EE9F8FB1520EB06008094BA /* Build configuration list for PBXNativeTarget "FWDisplayAdDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8EE9F8FC1520EB06008094BA /* Debug */,
+				8EE9F8FD1520EB06008094BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8EE9F8DA1520EB05008094BA /* Project object */;
+}

@@ -1,0 +1,17 @@
+5.3.0
+=====
+CLIENTHELP-6401 [iOS] Improved FWAdMobRenderer to fire error callback with name _e_unknown instead of _e_missing_para when player did not invoke FWAdManager.setCurrentViewController. 
+ 
+4.7.0 
+=====
+FDB-7508 [iOS] FWAdMobRenderer improvement
+* Upgraded to use AdMob SDK 5.0.8
+* Updated className to "FWAdMobRenderer" and deprecated className "FWAdMobInterstitialAdRenderer" and "FWAdMobViewAdRenderer".
+* Updated contentType to "external/admob" and deprecated "external/admob-interstitial" and "external/admob-view".
+* Before 4.6, FWAdMobRenderer behaved as AdMob interstitial ad if className was "FWAdMobInterstitialAdRenderer" and behaved as AdMob view ad if className was "FWAdMobViewAdRenderer".
+* From 4.6, FWAdMobRenderer uses creative baseUnit to distinguish what kind of AdMob Ad. If baseUnit is "app-interstitial", FWAdMobRenderer treats it as AdMob interstitial ad, otherwise FWAdMobRenderer treats it as AdMob view ad. 
+
+   
+4.5.0
+=====
+CLIENTHELP-3347 [iOS] deprecated error type _e_missing-lib in module AdMob Renderer. 

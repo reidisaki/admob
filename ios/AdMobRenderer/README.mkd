@@ -1,0 +1,17 @@
+FreeWheel AdMob Renderer
+======
+
+Summary
+====
+FWAdMobRenderer is a renderer which is responsible for displaying the AdMob ad.
+
+Version
+====
+The latest FreeWheel iOS AdMob renderer is developed based on AdMob SDK 5.0.8.
+
+How to compile
+====
+1. $ mkdir lib
+2. Download AdManager.framework from FreeWheel's techhub website.
+3. $ mv AdManager.framework lib/
+4. $ make CONFIG=Release

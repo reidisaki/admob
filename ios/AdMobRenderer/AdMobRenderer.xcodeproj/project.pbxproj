@@ -27,6 +27,7 @@
 		73094BB1146D095B005001BB /* FWAdMobInterstitialAdRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 73094BA8146D095B005001BB /* FWAdMobInterstitialAdRenderer.m */; };
 		73094BB2146D095B005001BB /* FWAdMobViewAdRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 73094BA9146D095B005001BB /* FWAdMobViewAdRenderer.h */; };
 		73094BB3146D095B005001BB /* FWAdMobViewAdRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 73094BAA146D095B005001BB /* FWAdMobViewAdRenderer.m */; };
+		8A596A45177A221600658C9D /* AdManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A596A44177A221600658C9D /* AdManager.framework */; };
 		8AB8128C1772303C004B55C7 /* FWCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AB8128B1772303C004B55C7 /* FWCommon.h */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		73094BA8146D095B005001BB /* FWAdMobInterstitialAdRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FWAdMobInterstitialAdRenderer.m; sourceTree = "<group>"; };
 		73094BA9146D095B005001BB /* FWAdMobViewAdRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FWAdMobViewAdRenderer.h; sourceTree = "<group>"; };
 		73094BAA146D095B005001BB /* FWAdMobViewAdRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FWAdMobViewAdRenderer.m; sourceTree = "<group>"; };
+		8A596A44177A221600658C9D /* AdManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AdManager.framework; sourceTree = "<group>"; };
 		8AB8128B1772303C004B55C7 /* FWCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FWCommon.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A596A45177A221600658C9D /* AdManager.framework in Frameworks */,
 				73094B43146CE12B005001BB /* CoreGraphics.framework in Frameworks */,
 				73094AED146CD3A5005001BB /* Foundation.framework in Frameworks */,
 			);
@@ -84,6 +87,7 @@
 		73094ADE146CD3A5005001BB = {
 			isa = PBXGroup;
 			children = (
+				8A596A44177A221600658C9D /* AdManager.framework */,
 				73094AF9146CD523005001BB /* Classes */,
 				73094AEB146CD3A5005001BB /* Frameworks */,
 				73094AEA146CD3A5005001BB /* Products */,
@@ -269,7 +273,10 @@
 		73094AF7146CD3A5005001BB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = lib;
+				FRAMEWORK_SEARCH_PATHS = (
+					lib,
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Classes/Common.pch;
 				GCC_THUMB_SUPPORT = NO;
@@ -282,7 +289,10 @@
 		73094AF8146CD3A5005001BB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = lib;
+				FRAMEWORK_SEARCH_PATHS = (
+					lib,
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Classes/Common.pch;
 				GCC_THUMB_SUPPORT = NO;

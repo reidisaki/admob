@@ -1,21 +1,129 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="AdMobRenderer" default="build-renderer-android">
-	<!-- BEGIN android required -->
-	<loadproperties srcFile="../local.properties" />
-	<property file="ant.properties" />
-	<loadproperties srcFile="project.properties" />
-	<fail
-		message="sdk.dir is missing. Make sure to generate local.properties using 'android update project'"
-		unless="sdk.dir"
-	/>
-	<!-- END android required -->
+<project name="AdMobRenderer" default="help">
 
-	<!-- RENDERER_TARGET and RENDERER_PACKAGE is required -->
-	<property name="RENDERER_TARGET" value="AdMobRenderer" />
-	<property name="RENDERER_PACKAGE" value="tv.freewheel.renderers.admob" />
+    <!-- The local.properties file is created and updated by the 'android' tool.
+         It contains the path to the SDK. It should *NOT* be checked into
+         Version Control Systems. -->
+    <loadproperties srcFile="local.properties" />
 
-	<!-- BEGIN import -->
-	<import file="${basedir}/../common/build.xml" />
-	<import file="${sdk.dir}/tools/ant/build.xml" />
-	<!-- END import -->
+    <!-- The ant.properties file can be created by you. It is only edited by the
+         'android' tool to add properties to it.
+         This is the place to change some Ant specific build properties.
+         Here are some properties you may want to change/update:
+
+         source.dir
+             The name of the source directory. Default is 'src'.
+         out.dir
+             The name of the output directory. Default is 'bin'.
+
+         For other overridable properties, look at the beginning of the rules
+         files in the SDK, at tools/ant/build.xml
+
+         Properties related to the SDK location or the project target should
+         be updated using the 'android' tool with the 'update' action.
+
+         This file is an integral part of the build system for your
+         application and should be checked into Version Control Systems.
+
+         -->
+    <property file="ant.properties" />
+
+    <!-- The project.properties file is created and updated by the 'android'
+         tool, as well as ADT.
+
+         This contains project specific properties such as project target, and library
+         dependencies. Lower level build properties are stored in ant.properties
+         (or in .classpath for Eclipse projects).
+
+         This file is an integral part of the build system for your
+         application and should be checked into Version Control Systems. -->
+    <loadproperties srcFile="project.properties" />
+
+    <!-- quick check on sdk.dir -->
+    <fail
+            message="sdk.dir is missing. Make sure to generate local.properties using 'android update project'"
+            unless="sdk.dir"
+    />
+
+    <property name="RENDERER_TARGET" value="AdMobRenderer" />
+    <property name="RENDERER_PACKAGE" value="tv.freewheel.renderers.admob" />
+    <property name="OUTPUT" value="${basedir}/build" />
+    <property name="RENDERER_CLASS_NAME" value="AdMobRenderer" />
+
+
+<!-- extension targets. Uncomment the ones where you want to do custom work
+     in between standard targets -->
+<!--
+    <target name="-pre-build">
+    </target>
+    <target name="-pre-compile">
+    </target>
+
+    /* This is typically used for code obfuscation.
+       Compiled code location: ${out.classes.absolute.dir}
+       If this is not done in place, override ${out.dex.input.absolute.dir} */
+    <target name="-post-compile">
+    </target>
+-->
+
+    <target name="-prepare-version-file">
+        <script language="javascript">
+            <![CDATA[
+	       var before = project.getProperty("RENDERER_PACKAGE");
+	       project.setProperty("RENDERER_PATH", project.getProperty("basedir")+"/src/"+before.replaceAll("\\.", "/"));
+      ]]>
+        </script>
+
+
+        <echo file="${RENDERER_PATH}/FreeWheelVersion.java">package ${RENDERER_PACKAGE};
+
+public class FreeWheelVersion {
+		public static final String FW_SDK_INTERFACE_VERSION = "";
+		public static final String RENDERER_VERSION = "";
+}
+        </echo>
+        <property file="${basedir}/freewheel.properties" />
+        <replaceregexp byline="true" >
+            <regexp pattern="FW_SDK_INTERFACE_VERSION = .+;" />
+            <substitution expression='FW_SDK_INTERFACE_VERSION = "${FW_SDK_VERSION}";' />
+            <fileset dir="${basedir}/src">
+                <include name="**/FreeWheelVersion.java" />
+            </fileset>
+        </replaceregexp>
+        <replaceregexp byline="true" >
+            <regexp pattern="RENDERER_VERSION = .+;" />
+            <substitution expression='RENDERER_VERSION = "${RENDERER_VERSION_INFO}";' />
+            <fileset dir="${basedir}/src">
+                <include name="**/FreeWheelVersion.java" />
+            </fileset>
+        </replaceregexp>
+    </target>
+
+    <target name="-pre-clean">
+        <delete dir="${OUTPUT}"/>
+    </target>
+
+    <target name="build" depends="clean, -prepare-version-file, debug">
+        <move file="${basedir}/bin/classes.jar" tofile="${OUTPUT}/${RENDERER_CLASS_NAME}.jar" />
+    </target>
+    <!-- Import the actual build file.
+
+         To customize existing targets, there are two options:
+         - Customize only one target:
+             - copy/paste the target into this file, *before* the
+               <import> task.
+             - customize it to your needs.
+         - Customize the whole content of build.xml
+             - copy/paste the content of the rules files (minus the top node)
+               into this file, replacing the <import> task.
+             - customize to your needs.
+
+         ***********************
+         ****** IMPORTANT ******
+         ***********************
+         In all cases you must update the value of version-tag below to read 'custom' instead of an integer,
+         in order to avoid having your file be overridden by tools such as "android update project"
+    -->
+    <!-- version-tag: 1 -->
+    <import file="${sdk.dir}/tools/ant/build.xml" />
 </project>

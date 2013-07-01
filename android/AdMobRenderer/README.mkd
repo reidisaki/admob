@@ -1,0 +1,11 @@
+FreeWheel AdMob Renderer for Android
+=======
+
+How to Compile
+===
+1. $ mv local.example.properties local.properties
+   $ mv freewheel.example.properties freewheel.properties
+2. Update properties files to reflect the sdk directory and FreeWheel SDK
+   version.
+3. Place FreeWheel Android SDK FWAdManager.jar under the libs directory
+4. $ ant build

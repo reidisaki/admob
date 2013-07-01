@@ -1,0 +1,13 @@
+5.6.0
+=====
+CLIENTHELP-7985 [android] Added support for AdMobRenderer to honor log level set via API tv.freewheel.utils.Logger.setLogLevel.
+
+5.5.0
+=====
+FDB-10688 [android] Deprecated AdManagerLoader.
+* Since this release AdMobRenderer is a static library.
+
+4.9.0
+=====
+FDB-7805 [android] new module AdMobRenderer.
+* for how to upgrade from AdMobViewRenderer and AdMobInterstitialRenderer to AdMobRenderer please refer to wiki page: http://wiki.dev.fwmrm.net/x/xRTnAg

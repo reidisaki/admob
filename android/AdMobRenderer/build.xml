@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="AdMobRenderer" default="build-renderer-android">
+	<!-- BEGIN android required -->
+	<loadproperties srcFile="../local.properties" />
+	<property file="ant.properties" />
+	<loadproperties srcFile="project.properties" />
+	<fail
+		message="sdk.dir is missing. Make sure to generate local.properties using 'android update project'"
+		unless="sdk.dir"
+	/>
+	<!-- END android required -->
+
+	<!-- RENDERER_TARGET and RENDERER_PACKAGE is required -->
+	<property name="RENDERER_TARGET" value="AdMobRenderer" />
+	<property name="RENDERER_PACKAGE" value="tv.freewheel.renderers.admob" />
+
+	<!-- BEGIN import -->
+	<import file="${basedir}/../common/build.xml" />
+	<import file="${sdk.dir}/tools/ant/build.xml" />
+	<!-- END import -->
+</project>

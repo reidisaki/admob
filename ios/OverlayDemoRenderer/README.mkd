@@ -1,0 +1,11 @@
+FreeWheel Overlay Demo Renderer
+======
+
+Summary
+====
+This is a renderer which is responsible for displaying the overlay ad.
+
+How to compile
+====
+1. Put AdManager.framework under the project's root directory.
+2. $ make CONFIG=Release

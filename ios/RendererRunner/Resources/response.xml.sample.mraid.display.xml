@@ -1,0 +1,37 @@
+<adResponse version="1">
+	<rendererManifest version="1">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;adRenderers version='1'&gt;&lt;adRenderer name='FWMRAIDAdRenderer' url='class://FWMRAIDAdRenderer'&gt;&lt;/adRenderer&gt;&lt;/adRenderers&gt;</rendererManifest>
+	<ads>
+		<ad adId="10000">
+			<creatives>
+				<creative baseUnit="" creativeId="10001" duration="5.000000">
+					<parameters/>
+					<creativeRenditions>
+						<creativeRendition creativeRenditionId="10002" height="640" width="480">
+							<asset contentType="text/html_doc_lit_mobile" id="10003" mimeType="text/html" url="http://vi.dev.fwmrm.net/www/resource/mraid/Tester/ad.html"/>
+						</creativeRendition>
+					</creativeRenditions>
+				</creative>
+			</creatives>
+		</ad>
+	</ads>
+	<siteSection>
+		<videoPlayer>
+			<videoAsset>
+				<adSlots/>
+			</videoAsset>
+		</videoPlayer>
+		<adSlots>
+			<adSlot customId="display-0">
+				<selectedAds>
+					<adReference adId="10000" creativeId="10001" creativeRenditionId="10002">
+						<eventCallbacks>
+							<eventCallback type="GENERIC" url="http://demo.v.fwmrm.net/ad/l/1?s=dbg-3rd&n=96749&t=1362468439682087002&adid=10000&reid=10002&arid=0&iw=&uxnw=&uxss=&uxct="/>
+							<eventCallback name="defaultImpression" type="IMPRESSION" url="http://demo.v.fwmrm.net/ad/l/1?s=dbg-3rd&n=96749&t=1362468439682087002&adid=10000&reid=10002&arid=0&auid=&cn=defaultImpression&et=i&_cc=&tpos=0&iw=&uxnw=&uxss=&uxct=&init=1&cr="/>
+							<eventCallback name="defaultClick" type="CLICK" showBrowser="true" url="http://nycadvip1-d.fwmrm.net/ad/l/1?s=debug&n=96749&t=1343028808684880004&adid=10000&reid=10002&arid=0&auid=&cn=defaultClick&et=c&_cc=&tpos=&cr=http%3A%2F%2Fwww.freewheel.tv"/>
+						</eventCallbacks>
+					</adReference>
+				</selectedAds>
+			</adSlot>
+		</adSlots>
+	</siteSection>
+</adResponse>

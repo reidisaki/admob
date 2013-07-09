@@ -1,0 +1,8 @@
+4.6.0
+=====
+FDB-7554 [iOS] bunch of RendererRunner internal improvements.
+
+4.5.4
+=====
+CLIENTHELP-3385 [iOS] improved RendererRunner to set slot width and height.
+

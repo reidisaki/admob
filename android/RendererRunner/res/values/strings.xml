@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello, This is FreeWheel RendererRunner app, you can test your renderer with this app!</string>
+    <string name="app_name">RendererRunner</string>
+
+</resources>

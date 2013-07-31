@@ -54,7 +54,7 @@ public class FWVideoView extends VideoView {
 			}
 		});
 	}
-	
+
 	/**
 	 * Provide a FreeWheel ad context to be used to communicate
 	 * video playback state changes

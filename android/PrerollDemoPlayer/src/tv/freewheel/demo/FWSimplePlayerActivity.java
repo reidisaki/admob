@@ -10,7 +10,6 @@ import tv.freewheel.ad.interfaces.IConstants;
 import tv.freewheel.ad.interfaces.IEvent;
 import tv.freewheel.ad.interfaces.IEventListener;
 import tv.freewheel.ad.interfaces.ISlot;
-import tv.freewheel.utils.Logger;
 import android.app.Activity;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -51,8 +50,6 @@ public class FWSimplePlayerActivity extends Activity implements MediaPlayer.OnEr
 	private MediaController mediaController = null;
 	private double videoDuration = 0.0;
 
-//	private IAdManagerLoader fwAdmLoader = null;
-	
 	// Ideally, your IAdManager instance is reused throughout your app
 	private IAdManager fwAdm = null;
 	private IAdContext fwContext = null;
@@ -99,7 +96,7 @@ public class FWSimplePlayerActivity extends Activity implements MediaPlayer.OnEr
 				videoDuration = mp.getDuration() / 1000;
 				Log.d(TAG, "Got video duration " + videoDuration);
 				videoPlayer.setOnPreparedListener(null);
-				loadAdManager();
+				initAdManager();
 			}
 		});
 		
@@ -108,44 +105,13 @@ public class FWSimplePlayerActivity extends Activity implements MediaPlayer.OnEr
 		videoPlayer.setVideoURI(videoURI);
 	}
 	
-	private void loadAdManager() {
+	private void initAdManager() {
     	Log.d(TAG, "Loading AdManager");
-/*    	
-		fwAdmLoader = AdManagerLoaderFactory.getInstance(this.getApplicationContext());
-		
-		// Attempt to load AdManager. If we fail, just play main content.
-		
-		fwAdmLoader.loadAdManager(fwAdmURL, new Handler() {
-			public void handleMessage(Message m) {
-				boolean success = m.getData().getBoolean("success");
-				if (success) {
-					Log.d(TAG, "AdManager successfully loaded from: " + fwAdmURL);
-
-					// Get an instance of AdManager and setup ad server and network
-					// Ad server URL and Network ID should be used for all contexts,
-					// so we set them on the AdManager instance.
-					
-					// See your FreeWheel sales engineer or account manager for the
-					// correct ad server URL and network ID to use
-					
-					fwAdm = fwAdmLoader.newAdManager();
-					fwAdm.setServer(fwAdsURL);
-					fwAdm.setNetwork(fwNetworkId);
-
-					submitAdRequest();
-				} else {
-					Log.d(TAG, "AdManager failed to load from: " + fwAdmURL);
-					playMainVideo();
-				}
-			}
-		});
-*/
-    	fwAdm = AdManager.getInstance(this.getApplicationContext(), Logger.getLogLevel());
+		fwAdm = AdManager.getInstance(this.getApplicationContext());
 		fwAdm.setServer(fwAdsURL);
 		fwAdm.setNetwork(fwNetworkId);
 
 		submitAdRequest();
-    	
 	}
 	
 	private void submitAdRequest() {
@@ -174,6 +140,7 @@ public class FWSimplePlayerActivity extends Activity implements MediaPlayer.OnEr
 					if (fwConstants.EVENT_REQUEST_COMPLETE().equals(eType) &&
 							Boolean.valueOf(eSuccess)) {
 						Log.d(TAG, "Request completed successfully");
+						Log.d(TAG, "Ads booked in placement 307877 are expected to return.");
 						handleAdManagerRequestComplete();
 					} else {
 						Log.d(TAG, "Request failed. Playing main content.");

@@ -52,4 +52,8 @@
 	</mxmlc>
 </target>
 
+<target name="clean">
+    <delete dir="${OUTPUT}" />
+</target>
+
 </project>

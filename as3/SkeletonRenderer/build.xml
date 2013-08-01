@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="FreeWheel Skeleton Renderer" basedir="." default="build">
+<description>build skeleton renderer</description>
+<property file="build.properties" />
+
+<property name="RENDERER_CLASS" value="tv.freewheel.renderer.SkeletonRenderer.SkeletonRenderer"/>
+<property name="RENDERER_TARGET" value="SkeletonRenderer"/>
+
+<property name="DEBUG" value="true"/>
+<property name="ONLINE" value="true"/>
+<property file="flex.properties"/>
+
+<property name="OUTPUT" value="${basedir}/build"/>
+
+<condition property="is-debug">
+	<equals arg1="${DEBUG}" arg2="true" />
+</condition>
+
+<target name="mkdirs">
+	<mkdir dir="${OUTPUT}"/>
+</target>
+
+<target name="debug-tag" if="is-debug">
+	<property name="DEBUG_TAG" value="-DEBUG"/>
+</target>
+
+<target name="tasks-as3">
+	<taskdef resource="flexTasks.tasks" 
+		classpath="${FLEX_HOME}/ant/lib/flexTasks.jar"/>
+</target>
+
+<target name="build" depends="tasks-as3,mkdirs">
+	<echo>Building ${RENDERER_TARGET} FP${TARGET_VERSION}</echo>
+	<echo file="${OUTPUT}/RENDERER_CLASS">${RENDERER_CLASS}</echo>
+	<replaceregexp file="${OUTPUT}/RENDERER_CLASS" match="\." replace="/" flags="g"/>
+	<loadfile property="RENDERER_FILE" srcFile="${OUTPUT}/RENDERER_CLASS" />
+	<delete file="${OUTPUT}/RENDERER_CLASS" quiet="true" />
+	<property name="FLEX_CONFIG" value="${FLEX_HOME}/frameworks/flex-config.xml"/>
+	<mxmlc
+		file="${basedir}/src/${RENDERER_FILE}.as" 
+		output="${OUTPUT}/${RENDERER_TARGET}.swf"
+		compiler.optimize="true"
+		compiler.accessible="true"
+		compiler.debug="${DEBUG}"
+		compiler.verbose-stacktraces="${DEBUG}"
+		incremental="false"
+		>
+		<compiler.include-libraries dir="${basedir}/lib" append="true">
+			<include name="*"/>
+		</compiler.include-libraries>
+		<source-path path-element="${basedir}/src"/>
+	</mxmlc>
+</target>
+
+</project>

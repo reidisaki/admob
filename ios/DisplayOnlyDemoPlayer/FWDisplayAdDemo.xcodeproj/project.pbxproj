@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A63408117C40D00007AB185 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A63408017C40D00007AB185 /* AdSupport.framework */; };
 		8AD751F217A87E8200D0B420 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD751F117A87E8200D0B420 /* CoreLocation.framework */; };
 		8AD751F417A87E8900D0B420 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD751F317A87E8900D0B420 /* CoreMedia.framework */; };
 		8AD751F617A87E9100D0B420 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD751F517A87E9100D0B420 /* AVFoundation.framework */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8A63408017C40D00007AB185 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		8AD751F117A87E8200D0B420 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		8AD751F317A87E8900D0B420 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		8AD751F517A87E9100D0B420 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -54,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A63408117C40D00007AB185 /* AdSupport.framework in Frameworks */,
 				8AD751FE17A8801E00D0B420 /* AdManager.framework in Frameworks */,
 				8AD751FA17A87EA300D0B420 /* MessageUI.framework in Frameworks */,
 				8AD751F817A87E9B00D0B420 /* EventKit.framework in Frameworks */,
@@ -75,6 +78,7 @@
 		8EE9F8D81520EB05008094BA = {
 			isa = PBXGroup;
 			children = (
+				8A63408017C40D00007AB185 /* AdSupport.framework */,
 				8EE9F9041520EB7D008094BA /* MediaPlayer.framework */,
 				8EE9F9021520EB75008094BA /* libxml2.dylib */,
 				8EE9F9001520EB6F008094BA /* QuartzCore.framework */,

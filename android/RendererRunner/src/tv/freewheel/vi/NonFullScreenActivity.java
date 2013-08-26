@@ -118,7 +118,7 @@ public class NonFullScreenActivity extends Activity implements OnCompletionListe
 		adContext = RendererRunnerActivity.ADMANAGER.newContext();
 		adContext.setActivity(this);
 		adConstants = adContext.getConstants();
-		adContext.registerVideoDisplayBase(this.videoBase);
+		adContext.registerVideoDisplay(this.videoPlayer);
 		
 		if (this.rendererConfig != null) {
 			int displaySlotCount = 0;

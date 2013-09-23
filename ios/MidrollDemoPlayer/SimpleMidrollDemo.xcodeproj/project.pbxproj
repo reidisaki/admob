@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8A63408517C418A0007AB185 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A63408417C418A0007AB185 /* AdSupport.framework */; };
+		8A63408517C418A0007AB185 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A63408417C418A0007AB185 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		CCBF466816A546EF002EEC39 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCBF466716A546EF002EEC39 /* UIKit.framework */; };
 		CCBF466A16A546EF002EEC39 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCBF466916A546EF002EEC39 /* Foundation.framework */; };
 		CCBF466C16A546EF002EEC39 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCBF466B16A546EF002EEC39 /* CoreGraphics.framework */; };

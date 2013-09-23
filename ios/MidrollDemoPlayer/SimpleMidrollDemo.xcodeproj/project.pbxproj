@@ -90,7 +90,6 @@
 		CCBF465816A546EF002EEC39 = {
 			isa = PBXGroup;
 			children = (
-				8A63408417C418A0007AB185 /* AdSupport.framework */,
 				CCBF466D16A546EF002EEC39 /* SimpleMidrollDemo */,
 				CCBF466616A546EF002EEC39 /* Frameworks */,
 				CCBF466416A546EF002EEC39 /* Products */,
@@ -108,6 +107,7 @@
 		CCBF466616A546EF002EEC39 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8A63408417C418A0007AB185 /* AdSupport.framework */,
 				CCBF469616A5484F002EEC39 /* AdManager.framework */,
 				CCBF469416A5483C002EEC39 /* EventKit.framework */,
 				CCBF469216A54834002EEC39 /* AssetsLibrary.framework */,

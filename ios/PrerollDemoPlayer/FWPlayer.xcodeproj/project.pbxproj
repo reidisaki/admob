@@ -28,6 +28,7 @@
 		8A3DCF51169FF851004D852F /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A3DCF4F169FF83A004D852F /* EventKit.framework */; };
 		8A3DCF52169FF854004D852F /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A3DCF4C169FF82D004D852F /* AssetsLibrary.framework */; };
 		8A3DCF5516A00BE4004D852F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A3DCF5416A00BE4004D852F /* Security.framework */; };
+		8A63408317C4186A007AB185 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A63408217C4186A007AB185 /* AdSupport.framework */; };
 		8E943B6615A56A7C001BF196 /* AdManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E943B6515A56A7C001BF196 /* AdManager.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		8A3DCF4C169FF82D004D852F /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		8A3DCF4F169FF83A004D852F /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		8A3DCF5416A00BE4004D852F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		8A63408217C4186A007AB185 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		8D1107310486CEB800E47090 /* FWPlayer-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "FWPlayer-Info.plist"; path = "../FWPlayer-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		8E943B6515A56A7C001BF196 /* AdManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AdManager.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -67,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A63408317C4186A007AB185 /* AdSupport.framework in Frameworks */,
 				8A3DCF5516A00BE4004D852F /* Security.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
@@ -113,6 +116,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				8A63408217C4186A007AB185 /* AdSupport.framework */,
 				8A3DCF5416A00BE4004D852F /* Security.framework */,
 				7381FAB21251C30E0007F59A /* Resources */,
 				080E96DDFE201D6D7F000001 /* Classes */,

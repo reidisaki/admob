@@ -24,6 +24,7 @@
 		455B1C0D173A0A2C0026D347 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 455B1C0C173A0A2C0026D347 /* libxml2.dylib */; };
 		455B1C14173A0A7C0026D347 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 455B1C13173A0A7C0026D347 /* CoreMedia.framework */; };
 		455B1C15173A0A840026D347 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 455B1BE9173A08D50026D347 /* CoreGraphics.framework */; };
+		8A63408717C418E5007AB185 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A63408617C418E5007AB185 /* AdSupport.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		455B1C0A173A0A220026D347 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		455B1C0C173A0A2C0026D347 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		455B1C13173A0A7C0026D347 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		8A63408617C418E5007AB185 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A63408717C418E5007AB185 /* AdSupport.framework in Frameworks */,
 				451F86A21769B34A0040D4C5 /* AVFoundation.framework in Frameworks */,
 				455B1C03173A09130026D347 /* HybridStreamStitcherSDK.framework in Frameworks */,
 				455B1C15173A0A840026D347 /* CoreGraphics.framework in Frameworks */,
@@ -73,6 +76,7 @@
 		455B1BD9173A08D50026D347 = {
 			isa = PBXGroup;
 			children = (
+				8A63408617C418E5007AB185 /* AdSupport.framework */,
 				4559F7A81752845800C94283 /* Icon.png */,
 				4559F7A61752843A00C94283 /* Icon@2x.png */,
 				455B1BEB173A08D50026D347 /* HybridStreamStitcherSDKDemo */,

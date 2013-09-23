@@ -37,6 +37,7 @@
 		45D14AA314723C6500C1ED09 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 45D14AA214723C6500C1ED09 /* libxml2.dylib */; };
 		45E0463714739F3C00500064 /* BaseAd.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E0463614739F3C00500064 /* BaseAd.m */; };
 		45EFC1B114C91FE300916B04 /* NSString+XMLEntities.m in Sources */ = {isa = PBXBuildFile; fileRef = 45EFC1B014C91FE300916B04 /* NSString+XMLEntities.m */; };
+		8A63408917C4197A007AB185 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A63408817C4197A007AB185 /* AdSupport.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +82,7 @@
 		45E0463614739F3C00500064 /* BaseAd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseAd.m; sourceTree = "<group>"; };
 		45EFC1AF14C91FE300916B04 /* NSString+XMLEntities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+XMLEntities.h"; sourceTree = "<group>"; };
 		45EFC1B014C91FE300916B04 /* NSString+XMLEntities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+XMLEntities.m"; sourceTree = "<group>"; };
+		8A63408817C4197A007AB185 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A63408917C4197A007AB185 /* AdSupport.framework in Frameworks */,
 				45D14AA314723C6500C1ED09 /* libxml2.dylib in Frameworks */,
 				45D14AA114723C2F00C1ED09 /* CoreLocation.framework in Frameworks */,
 				45D14A9F14723C1E00C1ED09 /* QuartzCore.framework in Frameworks */,
@@ -109,6 +112,7 @@
 		451373EC1470CF6C00D96921 = {
 			isa = PBXGroup;
 			children = (
+				8A63408817C4197A007AB185 /* AdSupport.framework */,
 				459436481495AD41009ACD4C /* README.md */,
 				459F15771470EB8700DC83EC /* Resources */,
 				4513741F1470D86400D96921 /* JSONKit */,

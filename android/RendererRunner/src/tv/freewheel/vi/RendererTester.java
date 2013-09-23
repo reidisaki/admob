@@ -118,7 +118,7 @@ public class RendererTester extends Activity implements OnCompletionListener, On
 		adContext = RendererRunnerActivity.ADMANAGER.newContext();
 		adContext.setActivity(this);
 		adConstants = adContext.getConstants();
-		adContext.registerVideoDisplayBase(this.videoBase);
+		adContext.registerVideoDisplay(this.videoPlayer);
 		
 		if (this.rendererConfig != null) {
 			int displaySlotCount = 0;

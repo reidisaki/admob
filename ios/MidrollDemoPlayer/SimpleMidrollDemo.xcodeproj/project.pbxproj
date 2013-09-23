@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A63408517C418A0007AB185 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A63408417C418A0007AB185 /* AdSupport.framework */; };
 		CCBF466816A546EF002EEC39 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCBF466716A546EF002EEC39 /* UIKit.framework */; };
 		CCBF466A16A546EF002EEC39 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCBF466916A546EF002EEC39 /* Foundation.framework */; };
 		CCBF466C16A546EF002EEC39 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCBF466B16A546EF002EEC39 /* CoreGraphics.framework */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8A63408417C418A0007AB185 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		CCBF466316A546EF002EEC39 /* SimpleMidrollDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleMidrollDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCBF466716A546EF002EEC39 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CCBF466916A546EF002EEC39 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -65,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A63408517C418A0007AB185 /* AdSupport.framework in Frameworks */,
 				CCBF469516A5483C002EEC39 /* EventKit.framework in Frameworks */,
 				CCBF469316A54834002EEC39 /* AssetsLibrary.framework in Frameworks */,
 				CCBF469116A5482C002EEC39 /* MessageUI.framework in Frameworks */,
@@ -87,6 +90,7 @@
 		CCBF465816A546EF002EEC39 = {
 			isa = PBXGroup;
 			children = (
+				8A63408417C418A0007AB185 /* AdSupport.framework */,
 				CCBF466D16A546EF002EEC39 /* SimpleMidrollDemo */,
 				CCBF466616A546EF002EEC39 /* Frameworks */,
 				CCBF466416A546EF002EEC39 /* Products */,
@@ -239,9 +243,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -268,9 +272,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -338,6 +342,7 @@
 				CCBF468316A546EF002EEC39 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

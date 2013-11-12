@@ -1,0 +1,251 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		73094AED146CD3A5005001BB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73094AEC146CD3A5005001BB /* Foundation.framework */; };
+		73094B1B146CDC0F005001BB /* Common.pch in Headers */ = {isa = PBXBuildFile; fileRef = 73094B1A146CDC0F005001BB /* Common.pch */; };
+		73094B43146CE12B005001BB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73094B42146CE12B005001BB /* CoreGraphics.framework */; };
+		8A9CFB0317832B3F00DEAF33 /* AdManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A9CFB0217832B3F00DEAF33 /* AdManager.framework */; };
+		B341970716AED54D00E4D575 /* OverlayRendererDemo.h in Headers */ = {isa = PBXBuildFile; fileRef = B341970516AED54D00E4D575 /* OverlayRendererDemo.h */; };
+		B341970816AED54D00E4D575 /* OverlayRendererDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = B341970616AED54D00E4D575 /* OverlayRendererDemo.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		73094AE9146CD3A5005001BB /* libOverlayRendererDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libOverlayRendererDemo.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		73094AEC146CD3A5005001BB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		73094B1A146CDC0F005001BB /* Common.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.pch; sourceTree = "<group>"; };
+		73094B42146CE12B005001BB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		8A9CFB0217832B3F00DEAF33 /* AdManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AdManager.framework; sourceTree = "<group>"; };
+		8A9CFB0417832BDC00DEAF33 /* FWCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FWCommon.h; sourceTree = "<group>"; };
+		B341970516AED54D00E4D575 /* OverlayRendererDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverlayRendererDemo.h; sourceTree = "<group>"; };
+		B341970616AED54D00E4D575 /* OverlayRendererDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverlayRendererDemo.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		73094AE6146CD3A5005001BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A9CFB0317832B3F00DEAF33 /* AdManager.framework in Frameworks */,
+				73094B43146CE12B005001BB /* CoreGraphics.framework in Frameworks */,
+				73094AED146CD3A5005001BB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		73094ADE146CD3A5005001BB = {
+			isa = PBXGroup;
+			children = (
+				73094AF9146CD523005001BB /* Classes */,
+				73094AEB146CD3A5005001BB /* Frameworks */,
+				73094AEA146CD3A5005001BB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		73094AEA146CD3A5005001BB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				73094AE9146CD3A5005001BB /* libOverlayRendererDemo.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		73094AEB146CD3A5005001BB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8A9CFB0217832B3F00DEAF33 /* AdManager.framework */,
+				73094B42146CE12B005001BB /* CoreGraphics.framework */,
+				73094AEC146CD3A5005001BB /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		73094AF9146CD523005001BB /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				8A9CFB0417832BDC00DEAF33 /* FWCommon.h */,
+				73094B1A146CDC0F005001BB /* Common.pch */,
+				B341970516AED54D00E4D575 /* OverlayRendererDemo.h */,
+				B341970616AED54D00E4D575 /* OverlayRendererDemo.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		73094AE7146CD3A5005001BB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				73094B1B146CDC0F005001BB /* Common.pch in Headers */,
+				B341970716AED54D00E4D575 /* OverlayRendererDemo.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		73094AE8146CD3A5005001BB /* OverlayRendererDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 73094AF6146CD3A5005001BB /* Build configuration list for PBXNativeTarget "OverlayRendererDemo" */;
+			buildPhases = (
+				73094AE5146CD3A5005001BB /* Sources */,
+				73094AE6146CD3A5005001BB /* Frameworks */,
+				73094AE7146CD3A5005001BB /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OverlayRendererDemo;
+			productName = AdMobRenderer;
+			productReference = 73094AE9146CD3A5005001BB /* libOverlayRendererDemo.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		73094AE0146CD3A5005001BB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = "FreeWheel Inc";
+			};
+			buildConfigurationList = 73094AE3146CD3A5005001BB /* Build configuration list for PBXProject "OverlayRendererDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 73094ADE146CD3A5005001BB;
+			productRefGroup = 73094AEA146CD3A5005001BB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				73094AE8146CD3A5005001BB /* OverlayRendererDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		73094AE5146CD3A5005001BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B341970816AED54D00E4D575 /* OverlayRendererDemo.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		73094AF4146CD3A5005001BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					armv7,
+					armv7s,
+					i386,
+				);
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = ../common/Headers;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		73094AF5146CD3A5005001BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					armv7,
+					armv7s,
+					i386,
+				);
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = ../common/Headers;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		73094AF7146CD3A5005001BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Classes/Common.pch;
+				PRODUCT_NAME = OverlayRendererDemo;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		73094AF8146CD3A5005001BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Classes/Common.pch;
+				PRODUCT_NAME = OverlayRendererDemo;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		73094AE3146CD3A5005001BB /* Build configuration list for PBXProject "OverlayRendererDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				73094AF4146CD3A5005001BB /* Debug */,
+				73094AF5146CD3A5005001BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		73094AF6146CD3A5005001BB /* Build configuration list for PBXNativeTarget "OverlayRendererDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				73094AF7146CD3A5005001BB /* Debug */,
+				73094AF8146CD3A5005001BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 73094AE0146CD3A5005001BB /* Project object */;
+}

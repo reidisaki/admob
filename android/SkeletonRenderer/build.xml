@@ -45,6 +45,12 @@
             unless="sdk.dir"
     />
 
+    <property name="RENDERER_TARGET" value="SkeletonRenderer" />
+    <property name="RENDERER_PACKAGE" value="tv.freewheel.renderers.skeleton" />
+    <property name="OUTPUT" value="${basedir}/build" />
+    <property name="RENDERER_CLASS_NAME" value="SkeletonRenderer" />
+
+
 
 <!-- extension targets. Uncomment the ones where you want to do custom work
      in between standard targets -->
@@ -62,6 +68,14 @@
 -->
 
     <target name="-prepare-version-file">
+        <script language="javascript">
+            <![CDATA[
+	       var before = project.getProperty("RENDERER_PACKAGE");
+	       project.setProperty("RENDERER_PATH", project.getProperty("basedir")+"/src/"+before.replaceAll("\\.", "/"));
+      ]]>
+        </script>
+
+
         <echo file="${RENDERER_PATH}/FreeWheelVersion.java">package ${RENDERER_PACKAGE};
 
 public class FreeWheelVersion {

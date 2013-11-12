@@ -1,0 +1,8 @@
+
+FreeWheel AS3 Skeleton Renderer
+=============================
+
+0.Update your Flex Sdk directory and target version in flex.properties
+1.Copy AdManagerRDK.swc to the lib directory.
+2.execute command 'ant'
+3.SkeletonRenderer.swf will be in ./build if built successfully. 

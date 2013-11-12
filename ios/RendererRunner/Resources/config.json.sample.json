@@ -1,0 +1,60 @@
+{
+	"rendererClass":"FWVideoAdRenderer",
+	"testAds": [
+                {
+                "slotType":  "dISPlay",
+				"baseUnit": "fixed-size-interactive",
+                "slotWidth": 300, //for Display
+                "slotHeight": 150, //for Display
+                "url": "",
+                "content":"<html><body><h1>$ sshnuke 10.2.2.2 -u root -p Z1ON1010<br />$ grid poweroff.</h1></body></html>",
+                "defaultClickThrough": "http://www.freewheel.tv",
+                "otherAssets": [{"nameOfAssert" : "http://www.domain.info/aUrlToAssert"}],
+                "param":[{"k":"v"}]
+                },
+                {
+                "slotType":  "DIsplAY",
+                "slotWidth": 300, //for Display
+                "slotHeight": 150, //for Display
+                "url": "",
+                "content":"<html><body><h1>Hello, real world.</h1></body></html>",
+                "defaultClickThrough": "http://www.freewheel.tv",
+                "param":[{"k":"v"}]
+                },
+                {
+                "slotType":  "MIDroLL", // or MID/POST/OVER/DISPL
+                "slotTimePos": 2.0, // for OVERLAY & MIDROLL
+                "url":"http://vi.dev.fwmrm.net/www/resource/video/TestAd_5s_A.m4v",
+                "content":"",
+                "duration": 5, // for OVERLAY, PREROLL, POSTROLL & MIDROLL
+                "defaultClickThrough": "http://www.freewheel.tv",
+                "param":[{"k":"v"}]
+                },
+                {
+                "slotType":  "PreROLL", // or MID/POST/OVER/DISPL
+                "url":"http://vi.dev.fwmrm.net/www/resource/video/TestAd_5s_B.m4v",
+                "content":"",
+                "duration": 5, // for OVERLAY, PREROLL, POSTROLL & MIDROLL
+                "defaultClickThrough": "http://www.freewheel.tv",
+                "param":[{"k":"v"}]
+                },
+                {
+                "slotType":  "MIDROLL", // or MID/POST/OVER/DISPL
+                "slotTimePos": 10.0, // for OVERLAY & MIDROLL
+                "url":"http://vi.dev.fwmrm.net/www/resource/video/TestAd_16s_A.mp4",
+                "content":"",
+                "duration": 16, // for OVERLAY, PREROLL, POSTROLL & MIDROLL
+                "defaultClickThrough": "http://www.freewheel.tv",
+                "param":[{"k":"v"}]
+                },
+                {
+                "slotType":  "OVerlAY",
+                "slotTimePos": 10.0, // for OVERLAY & MIDROLL
+                "url":"http://www.freewheel.tv/images/site/lgo-footer.png",
+                "content":"",
+                "duration": 5,
+                "defaultClickThrough": "http://www.freewheel.tv",
+                "param":[{"k":"v"}]
+                }
+                ]
+}

@@ -1,0 +1,343 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		451F86A21769B34A0040D4C5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451F86A11769B34A0040D4C5 /* AVFoundation.framework */; };
+		45588830174C81AE00E38C90 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4558882F174C81AE00E38C90 /* Storyboard.storyboard */; };
+		4559F7A71752843A00C94283 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4559F7A61752843A00C94283 /* Icon@2x.png */; };
+		4559F7A91752845800C94283 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4559F7A81752845800C94283 /* Icon.png */; };
+		455B1BE6173A08D50026D347 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 455B1BE5173A08D50026D347 /* UIKit.framework */; };
+		455B1BE8173A08D50026D347 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 455B1BE7173A08D50026D347 /* Foundation.framework */; };
+		455B1BF0173A08D50026D347 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 455B1BEE173A08D50026D347 /* InfoPlist.strings */; };
+		455B1BF2173A08D50026D347 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 455B1BF1173A08D50026D347 /* main.m */; };
+		455B1BF6173A08D50026D347 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 455B1BF5173A08D50026D347 /* AppDelegate.m */; };
+		455B1BF8173A08D50026D347 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 455B1BF7173A08D50026D347 /* Default.png */; };
+		455B1BFA173A08D50026D347 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 455B1BF9173A08D50026D347 /* Default@2x.png */; };
+		455B1BFC173A08D50026D347 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 455B1BFB173A08D50026D347 /* Default-568h@2x.png */; };
+		455B1C03173A09130026D347 /* HybridStreamStitcherSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 455B1C02173A09130026D347 /* HybridStreamStitcherSDK.framework */; };
+		455B1C08173A09AA0026D347 /* StreamStitcherWithAVPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 455B1C05173A09AA0026D347 /* StreamStitcherWithAVPlayerViewController.m */; };
+		455B1C0D173A0A2C0026D347 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 455B1C0C173A0A2C0026D347 /* libxml2.dylib */; };
+		455B1C14173A0A7C0026D347 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 455B1C13173A0A7C0026D347 /* CoreMedia.framework */; };
+		455B1C15173A0A840026D347 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 455B1BE9173A08D50026D347 /* CoreGraphics.framework */; };
+		8A63408717C418E5007AB185 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A63408617C418E5007AB185 /* AdSupport.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		451F86A11769B34A0040D4C5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		4558882F174C81AE00E38C90 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		4559F7A61752843A00C94283 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		4559F7A81752845800C94283 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		455B1BE2173A08D50026D347 /* HybridStreamStitcherSDKDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HybridStreamStitcherSDKDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		455B1BE5173A08D50026D347 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		455B1BE7173A08D50026D347 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		455B1BE9173A08D50026D347 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		455B1BED173A08D50026D347 /* HybridStreamStitcherSDKDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HybridStreamStitcherSDKDemo-Info.plist"; sourceTree = "<group>"; };
+		455B1BEF173A08D50026D347 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		455B1BF1173A08D50026D347 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		455B1BF3173A08D50026D347 /* HybridStreamStitcherSDKDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HybridStreamStitcherSDKDemo-Prefix.pch"; sourceTree = "<group>"; };
+		455B1BF4173A08D50026D347 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		455B1BF5173A08D50026D347 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		455B1BF7173A08D50026D347 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		455B1BF9173A08D50026D347 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		455B1BFB173A08D50026D347 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		455B1C02173A09130026D347 /* HybridStreamStitcherSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HybridStreamStitcherSDK.framework; path = ../../build/HybridStreamStitcherSDK.framework; sourceTree = "<group>"; };
+		455B1C04173A09AA0026D347 /* StreamStitcherWithAVPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamStitcherWithAVPlayerViewController.h; sourceTree = "<group>"; };
+		455B1C05173A09AA0026D347 /* StreamStitcherWithAVPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamStitcherWithAVPlayerViewController.m; sourceTree = "<group>"; };
+		455B1C0A173A0A220026D347 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		455B1C0C173A0A2C0026D347 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		455B1C13173A0A7C0026D347 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		8A63408617C418E5007AB185 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		455B1BDF173A08D50026D347 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A63408717C418E5007AB185 /* AdSupport.framework in Frameworks */,
+				451F86A21769B34A0040D4C5 /* AVFoundation.framework in Frameworks */,
+				455B1C03173A09130026D347 /* HybridStreamStitcherSDK.framework in Frameworks */,
+				455B1C15173A0A840026D347 /* CoreGraphics.framework in Frameworks */,
+				455B1C14173A0A7C0026D347 /* CoreMedia.framework in Frameworks */,
+				455B1BE8173A08D50026D347 /* Foundation.framework in Frameworks */,
+				455B1C0D173A0A2C0026D347 /* libxml2.dylib in Frameworks */,
+				455B1BE6173A08D50026D347 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		455B1BD9173A08D50026D347 = {
+			isa = PBXGroup;
+			children = (
+				8A63408617C418E5007AB185 /* AdSupport.framework */,
+				4559F7A81752845800C94283 /* Icon.png */,
+				4559F7A61752843A00C94283 /* Icon@2x.png */,
+				455B1BEB173A08D50026D347 /* HybridStreamStitcherSDKDemo */,
+				455B1BE4173A08D50026D347 /* Frameworks */,
+				455B1BE3173A08D50026D347 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		455B1BE3173A08D50026D347 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				455B1BE2173A08D50026D347 /* HybridStreamStitcherSDKDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		455B1BE4173A08D50026D347 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				451F86A11769B34A0040D4C5 /* AVFoundation.framework */,
+				455B1BE9173A08D50026D347 /* CoreGraphics.framework */,
+				455B1C13173A0A7C0026D347 /* CoreMedia.framework */,
+				455B1BE7173A08D50026D347 /* Foundation.framework */,
+				455B1C02173A09130026D347 /* HybridStreamStitcherSDK.framework */,
+				455B1C0C173A0A2C0026D347 /* libxml2.dylib */,
+				455B1C0A173A0A220026D347 /* MediaPlayer.framework */,
+				455B1BE5173A08D50026D347 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		455B1BEB173A08D50026D347 /* HybridStreamStitcherSDKDemo */ = {
+			isa = PBXGroup;
+			children = (
+				455B1BF4173A08D50026D347 /* AppDelegate.h */,
+				455B1BF5173A08D50026D347 /* AppDelegate.m */,
+				455B1C04173A09AA0026D347 /* StreamStitcherWithAVPlayerViewController.h */,
+				455B1C05173A09AA0026D347 /* StreamStitcherWithAVPlayerViewController.m */,
+				4558882F174C81AE00E38C90 /* Storyboard.storyboard */,
+				455B1BEC173A08D50026D347 /* Supporting Files */,
+			);
+			path = HybridStreamStitcherSDKDemo;
+			sourceTree = "<group>";
+		};
+		455B1BEC173A08D50026D347 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				455B1BED173A08D50026D347 /* HybridStreamStitcherSDKDemo-Info.plist */,
+				455B1BEE173A08D50026D347 /* InfoPlist.strings */,
+				455B1BF1173A08D50026D347 /* main.m */,
+				455B1BF3173A08D50026D347 /* HybridStreamStitcherSDKDemo-Prefix.pch */,
+				455B1BF7173A08D50026D347 /* Default.png */,
+				455B1BF9173A08D50026D347 /* Default@2x.png */,
+				455B1BFB173A08D50026D347 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		455B1BE1173A08D50026D347 /* HybridStreamStitcherSDKDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 455B1BFF173A08D50026D347 /* Build configuration list for PBXNativeTarget "HybridStreamStitcherSDKDemo" */;
+			buildPhases = (
+				455B1BDE173A08D50026D347 /* Sources */,
+				455B1BDF173A08D50026D347 /* Frameworks */,
+				455B1BE0173A08D50026D347 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HybridStreamStitcherSDKDemo;
+			productName = HybridStreamStitcherSDKDemo;
+			productReference = 455B1BE2173A08D50026D347 /* HybridStreamStitcherSDKDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		455B1BDA173A08D50026D347 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = FW;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = FreeWheel;
+			};
+			buildConfigurationList = 455B1BDD173A08D50026D347 /* Build configuration list for PBXProject "HybridStreamStitcherSDKDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 455B1BD9173A08D50026D347;
+			productRefGroup = 455B1BE3173A08D50026D347 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				455B1BE1173A08D50026D347 /* HybridStreamStitcherSDKDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		455B1BE0173A08D50026D347 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				455B1BF0173A08D50026D347 /* InfoPlist.strings in Resources */,
+				455B1BF8173A08D50026D347 /* Default.png in Resources */,
+				455B1BFA173A08D50026D347 /* Default@2x.png in Resources */,
+				455B1BFC173A08D50026D347 /* Default-568h@2x.png in Resources */,
+				45588830174C81AE00E38C90 /* Storyboard.storyboard in Resources */,
+				4559F7A71752843A00C94283 /* Icon@2x.png in Resources */,
+				4559F7A91752845800C94283 /* Icon.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		455B1BDE173A08D50026D347 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				455B1BF2173A08D50026D347 /* main.m in Sources */,
+				455B1BF6173A08D50026D347 /* AppDelegate.m in Sources */,
+				455B1C08173A09AA0026D347 /* StreamStitcherWithAVPlayerViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		455B1BEE173A08D50026D347 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				455B1BEF173A08D50026D347 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		455B1BFD173A08D50026D347 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		455B1BFE173A08D50026D347 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		455B1C00173A08D50026D347 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HybridStreamStitcherSDKDemo/HybridStreamStitcherSDKDemo-Prefix.pch";
+				INFOPLIST_FILE = "HybridStreamStitcherSDKDemo/HybridStreamStitcherSDKDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		455B1C01173A08D50026D347 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HybridStreamStitcherSDKDemo/HybridStreamStitcherSDKDemo-Prefix.pch";
+				INFOPLIST_FILE = "HybridStreamStitcherSDKDemo/HybridStreamStitcherSDKDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		455B1BDD173A08D50026D347 /* Build configuration list for PBXProject "HybridStreamStitcherSDKDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				455B1BFD173A08D50026D347 /* Debug */,
+				455B1BFE173A08D50026D347 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		455B1BFF173A08D50026D347 /* Build configuration list for PBXNativeTarget "HybridStreamStitcherSDKDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				455B1C00173A08D50026D347 /* Debug */,
+				455B1C01173A08D50026D347 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 455B1BDA173A08D50026D347 /* Project object */;
+}

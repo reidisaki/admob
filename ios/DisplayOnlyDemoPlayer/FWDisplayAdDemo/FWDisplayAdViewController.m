@@ -35,14 +35,14 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onAdRequestCompleted:) name:FW_NOTIFICATION_REQUEST_COMPLETE object:adContext];
     
     // Now set necessary parameters. Please check out FreeWheel iOS AdManager API docs for details.
-    [self.adContext setProfile:FW_PROFILE :nil :nil :nil];
-    [self.adContext setSiteSection:FW_SITE_SECTION :0 :0 :FW_ID_TYPE_CUSTOM :0];
-    [self.adContext setVideoAsset:FW_VIDEO_ASSET :600 :nil :true :0 :0 :FW_ID_TYPE_CUSTOM :0 :FW_VIDEO_ASSET_DURATION_TYPE_EXACT];
+    [self.adContext setPlayerProfile:FW_PROFILE defaultTemporalSlotProfile:nil defaultVideoPlayerSlotProfile:nil defaultSiteSectionSlotProfile:nil];
+    [self.adContext setSiteSectionId:FW_SITE_SECTION idType:FW_ID_TYPE_CUSTOM pageViewRandom:0 networkId:FW_NETWORK_ID fallbackId:0];
+    [self.adContext setVideoAssetId:FW_VIDEO_ASSET idType:FW_ID_TYPE_CUSTOM duration:600 durationType:FW_VIDEO_ASSET_DURATION_TYPE_EXACT location:nil autoPlayType:true videoPlayRandom:0 networkId:FW_NETWORK_ID fallbackId:0];
     
     // Add a display slot (site section non temporal slot)
-    [self.adContext addSiteSectionNonTemporalSlot:SLOT_300_X_250 :nil :300 :250 :nil :YES :FW_SLOT_OPTION_INITIAL_AD_STAND_ALONE :nil :nil :nil];
-    [self.adContext addSiteSectionNonTemporalSlot:SLOT_300_X_60 :nil :300 :60 :nil :YES :FW_SLOT_OPTION_INITIAL_AD_STAND_ALONE :nil :nil :nil];
-    [self.adContext submitRequest:10];
+    [self.adContext addSiteSectionNonTemporalSlot:SLOT_300_X_250 adUnit:nil width:300 height:250 slotProfile:nil acceptCompanion:YES initialAdOption:FW_SLOT_OPTION_INITIAL_AD_STAND_ALONE acceptPrimaryContentType:nil acceptContentType:nil compatibleDimensions:nil];
+    [self.adContext addSiteSectionNonTemporalSlot:SLOT_300_X_60 adUnit:nil width:300 height:60 slotProfile:nil acceptCompanion:YES initialAdOption:FW_SLOT_OPTION_INITIAL_AD_STAND_ALONE acceptPrimaryContentType:nil acceptContentType:nil compatibleDimensions:nil];
+    [self.adContext submitRequestWithTimeout:10];
     
     // Next, check out onAdRequestCompleted to see what happens after we get the response from FreeWheel ad server.
 }
@@ -50,7 +50,7 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    [self.adContext release];
+    self.adContext = nil;
     [adManager release];
 }
 

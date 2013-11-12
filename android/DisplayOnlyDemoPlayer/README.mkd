@@ -1,0 +1,10 @@
+Android Display Demo Player
+===
+
+1. Rename local.example.properties to local.properties and modify the value of
+   sdk.dir to the android SDK dir.
+2. Place the latest FWAdManager.jar into the libs directory.
+3. execute command "ant debug" to compile and generate the apk file.
+
+Alternatively, you can import the project into Eclipse and run the application
+on the device.

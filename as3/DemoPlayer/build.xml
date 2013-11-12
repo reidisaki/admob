@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="DemoPlayer" basedir=".">
+    <property name="APP_ROOT" value="."/>
+    <property file="flex.properties" />
+    <echo>
+        Flex home: ${FLEX_HOME}
+    </echo>
+    <taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/ant/lib/flexTasks.jar" />
+    <property name="SRC_DIR" value="${APP_ROOT}/src" />
+    <property name="OUTPUT_DIR" value="${APP_ROOT}/build"/>
+    <property name="TEMPLATE_DIR" value="${APP_ROOT}/html-template" />
+    <property name="LIBS_DIR" value="${APP_ROOT}/libs" />
+    <target name="build">
+        <mkdir dir="${OUTPUT_DIR}"/>
+        <mxmlc 
+            file="${SRC_DIR}/DemoPlayer.as" 
+            output="${OUTPUT_DIR}/DemoPlayer.swf"
+            actionscript-file-encoding="UTF-8"
+            keep-generated-actionscript="true"
+            incremental="true"
+        >
+            <!-- Get default compiler options. -->
+            <load-config filename="${FLEX_HOME}/frameworks/flex-config.xml"/>
+
+            <!-- List of path elements that form the roots of ActionScript
+            class hierarchies. -->
+            <source-path path-element="${FLEX_HOME}/frameworks"/>
+
+            <!-- List of SWC files or directories that contain SWC files. -->
+            <compiler.library-path dir="${FLEX_HOME}/frameworks" append="true">
+                <include name="libs" />
+                <include name="../bundles/{locale}" />
+            </compiler.library-path>
+
+            <compiler.library-path dir="${LIBS_DIR}" append="true">
+                <include name="AdManagerLoader.swc" />
+                <include name="OSMF.swc" />
+            </compiler.library-path>
+
+            <!-- Set size of output SWF file. -->
+            <default-size width="600" height="480" />
+        </mxmlc>
+    </target>
+    <target name="clean">
+        <delete dir="${OUTPUT_DIR}"/>
+    </target>
+</project>

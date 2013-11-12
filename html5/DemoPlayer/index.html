@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<meta charset="utf-8" />
+	<title>FreeWheel HTML5 Demo Player</title>
+	<meta name = "viewport" content = "initial-scale = 1.0, width = device-width, target-densitydpi = device-dpi" />
+
+	<!--<script type="text/javascript" src="https://getfirebug.com/firebug-lite.js"></script>-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.js" type="text/javascript"></script>
+
+	<!-- Contact FreeWheel Sales Engineer for AdManager.js URL for your production usage -->
+	<script src="http://adm.fwmrm.net/p/vitest-js/AdManager.js" type="text/javascript"></script>
+
+	<script src="player.js" type="text/javascript"></script>
+</head>
+<body>
+	<div id="displayBase"  style="width:400px">
+		<video id="videoPlayer" width="400" height="225" style="background:black"></video>
+	</div>
+
+	<div id='buttonDiv'>
+		<button id="start" onclick="startPlayback();return false;" disabled>Play &#9659;</button>
+	</div>
+
+	<br><br>
+	<table border='1' cellpadding='1'>
+		<tr><th>COMPANION SLOTS</th></tr>
+		<tr>
+			<td>
+			    <span id="VPNT_1" class="_fwph" >
+			        <form id="_fw_form_VPNT_1" style="display:none">
+			            <input type="hidden" name="_fw_input_VPNT_1" id="_fw_input_VPNT_1" value="ptgt=p&amp;h=90&amp;w=728&amp;cd=216,30">
+			        </form>
+			        <span id="_fw_container_VPNT_1">COMPANION_SLOT_1</span>
+			    </span>
+			</td>
+		</tr>
+		<!--tr>
+			<td>
+			    <span id="SSNT_1" class="_fwph" >
+			        <form id="_fw_form_SSNT_1" style="display:none">
+			            <input type="hidden" name="_fw_input_SSNT_1" id="_fw_input_SSNT_1" value="w=300&amp;h=250">
+			        </form>
+			        <span id="_fw_container_SSNT_1">COMPANION_SLOT_2</span>
+			    </span>
+			</td>
+		</tr-->
+	</table>
+	<br>
+	<table border='1' cellpadding='1'>
+		<tr><th>STAND ALONE DISPLAY SLOTS</th></tr>
+		<tr>
+			<td>
+			    <span id="SSNT_2" class="_fwph" >
+			        <form id="_fw_form_SSNT_2" style="display:none">
+			            <input type="hidden" name="_fw_input_SSNT_2" id="_fw_input_SSNT_2" value="ptgt=p&amp;h=90&amp;w=728&amp;cd=216,30&amp;flag=-cmpn">
+			        </form>
+			        <span id="_fw_container_SSNT_2">DISPLAY_SLOT_1</span>
+			    </span>
+			</td>
+		</tr>
+	</table>
+</body>	
+</html>

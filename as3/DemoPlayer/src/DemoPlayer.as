@@ -1,3 +1,5 @@
+// Expected placement: https://mrm.freewheel.tv/90750/advertising/campaign/campaigns/960220/trafficking_io?placement_id=960222
+
 package
 {
 	import flash.display.Sprite;

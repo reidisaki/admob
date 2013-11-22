@@ -1,0 +1,66 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title>FreeWheel LinkTag2 Demo Page</title>
+	<meta name = "viewport" content = "initial-scale = 1.0" />
+	<!--<script type="text/javascript" src="https://getfirebug.com/firebug-lite-beta.js"></script>-->
+
+</head>
+<body>
+	<table border='1' cellpadding='1'>
+		<tr><th>DISPLAY SLOTS</th></tr>
+		<tr>
+			<td>
+			    <span id="SSNT_1" class="_fwph" >
+			        <form id="_fw_form_SSNT_1" style="display:none">
+			            <input type="hidden" name="_fw_input_SSNT_1" id="_fw_input_SSNT_1" value="ptgt=s&h=90&w=728&cd=216,30">
+			        </form>
+			        <span id="_fw_container_SSNT_1">DISPLAY_SLOT_1</span>
+			    </span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td>
+			    <span id="SSNT_2" class="_fwph" >
+			        <form id="_fw_form_SSNT_2" style="display:none">
+			            <input type="hidden" name="_fw_input_SSNT_2" id="_fw_input_SSNT_2" value="ptgt=s&h=250&w=300&flag=-cmpn">
+			        </form>
+			        <span id="_fw_container_SSNT_2">DISPLAY_SLOT_2</span>
+			    </span>
+			</td>
+		</tr>
+	</table>
+
+	<script>//This will create an async <script> to load the FreeWheel LinkTag2 js. 
+		(function() {
+
+      // Configurations below should be changed and copied over
+			var profile_path	= "vitest-js";												// Replace with your own CDN path
+			window._fw_linktag_params = {
+				scan_delay			:		0,												// Configurable value
+				server				: 		"g1.v.fwmrm.net",								// Replace with the server domain assigned to your network
+				network_id			: 		"96749",										// Replace with your network id
+				profile				: 		"global-js",									// Replace with the profile setup for you
+				other_global_params	: 		"csid=DemoSiteGroup.01&caid=DemoVideoGroup.01",	// Replace with the parameters in your network
+				key_values			: 		"module=DemoPlayer&feature=trackingURLs"		// Replace with the actual key values 
+			};
+
+      // Codes below should be copied over without modification
+			var e = function(){
+				if(document.addEventListener) document.removeEventListener('DOMContentLoaded',e,false);
+				else window.detachEvent('onload',e);
+				window._fw_page_ready = true;
+			};
+			if(document.addEventListener) document.addEventListener('DOMContentLoaded',e,false);
+			else if(window.attachEvent) window.attachEvent('onload',e);
+
+			var lt = document.createElement('script');    
+			lt.type = 'text/javascript';     
+			lt.async = true;    
+			lt.src = window.location.protocol+"//adm.fwmrm.net/p/"+ profile_path +"/LinkTag2.js";
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lt, s);  
+		})(); 
+	</script>
+</body>	
+</html>

@@ -16,23 +16,11 @@
 }
 
 - (void)disableContentAirPlay {
-	if ([[[UIDevice currentDevice] systemVersion] doubleValue] >= 6) {
-		_player.usesExternalPlaybackWhileExternalScreenIsActive = NO;
-		_player.allowsExternalPlayback = NO;
-	} else{
-		_player.usesAirPlayVideoWhileAirPlayScreenIsActive = NO;
-		_player.allowsAirPlayVideo = NO;
-	}
+    moviePlayerController.allowsAirPlay = NO;
 }
 
 - (void)enableContentAirPlay {
-	if ([[[UIDevice currentDevice] systemVersion] doubleValue] >= 6) {
-		_player.allowsExternalPlayback = YES;
-		_player.usesExternalPlaybackWhileExternalScreenIsActive = YES;
-	} else {
-		_player.allowsAirPlayVideo = YES;
-		_player.usesAirPlayVideoWhileAirPlayScreenIsActive = YES;
-	}
+    moviePlayerController.allowsAirPlay = YES;
 }
 
 - (void)loadView {
@@ -46,12 +34,6 @@
     
     _adVideoView = [[UIView alloc] initWithFrame:moviePlayerSuperview.bounds];
     [moviePlayerSuperview addSubview:_adVideoView];
-    
-    _contentVideoView = [[UIView alloc] initWithFrame:moviePlayerSuperview.bounds];
-	_loadingIndicator = [[UIActivityIndicatorView alloc] init];
-	[_loadingIndicator setHidesWhenStopped:YES];
-	_loadingIndicator.center = CGPointMake(_contentVideoView.bounds.origin.x + _contentVideoView.bounds.size.width/2, _contentVideoView.bounds.origin.y + _contentVideoView.bounds.size.height/2);
-	[_contentVideoView addSubview:_loadingIndicator];
     
     _airplayView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"airplay.png"]];
     _airplayView.frame = moviePlayerSuperview.bounds;
@@ -89,8 +71,8 @@
 	[temporalSlots addObjectsFromArray:[adContext getSlotsByTimePositionClass:FW_TIME_POSITION_CLASS_PREROLL]];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_onAdSlotEnded:) name:FW_NOTIFICATION_SLOT_ENDED object:adContext];
     [self disableContentAirPlay];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_onAirPlayStarted:) name:FW_NOTIFICATION_SLOT_EXTERNAL_PLAYBACK_STARTED object:adContext];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_onAirPlayStopped:) name:FW_NOTIFICATION_SLOT_EXTERNAL_PLAYBACK_STOPPED object:adContext];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_onAirPlayStarted:) name:FW_NOTIFICATION_AD_EXTERNAL_PLAYBACK_STARTED object:adContext];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_onAirPlayStopped:) name:FW_NOTIFICATION_AD_EXTERNAL_PLAYBACK_STOPPED object:adContext];
 	[self _playPrerollAdSlots];
 }
 
@@ -156,7 +138,7 @@
 }
 
 - (void)_onTimer:(NSTimer*)timer{
-	NSTimeInterval currentPlayheadTime = CMTimeGetSeconds(_player.currentTime);
+	NSTimeInterval currentPlayheadTime = [moviePlayerController currentPlaybackTime];
     
 	for (uint i = 0; i < temporalSlots.count; i++){
         NSTimeInterval cuepoint = [[temporalSlots objectAtIndex:i] timePosition];
@@ -169,7 +151,6 @@
 			return;
 		}
 	}
-    
 }
 
 - (void)_onContentPauseRequest:(NSNotification *)notification{
@@ -196,25 +177,15 @@
 - (void)_playContentMovie {
     NSLog(@"Playing content video...");
     [_adVideoView removeFromSuperview];
-    [moviePlayerSuperview addSubview:_contentVideoView];
-    
-    _player = [[AVPlayer alloc] initWithURL:FWPLAYER_CONTENT_VIDEO_URL];
-    _playerLayer = [AVPlayerLayer playerLayerWithPlayer:_player];
-    _playerLayer.frame = _contentVideoView.bounds;
-    [[_contentVideoView layer] addSublayer:_playerLayer];
-	
-	[_contentVideoView bringSubviewToFront:_loadingIndicator];
-	[_loadingIndicator startAnimating];
-    
+    moviePlayerController = [[MPMoviePlayerController alloc] initWithContentURL:FWPLAYER_CONTENT_VIDEO_URL];
+	moviePlayerController.view.frame = moviePlayerSuperview.bounds;
+    [moviePlayerSuperview addSubview:moviePlayerController.view];
     [self enableContentAirPlay];
-    [[_player currentItem] addObserver:self forKeyPath:@"status" options:0 context:nil];
-	
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_onAVPlayerItemEnd:) name:AVPlayerItemDidPlayToEndTimeNotification object:[_player currentItem]];
-	if ([[[UIDevice currentDevice] systemVersion] doubleValue] >= 6) {
-		[_player addObserver:self forKeyPath:@"externalPlaybackActive" options:0 context:nil];
-	} else {
-		[_player addObserver:self forKeyPath:@"airPlayVideoActive" options:0 context:nil];
-	}
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_onMovieLoadStateChanged:) name:MPMoviePlayerLoadStateDidChangeNotification object:moviePlayerController];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_onMoviePlaybackStateDidChange:) name:MPMoviePlayerPlaybackStateDidChangeNotification object:moviePlayerController];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_onMoviePlaybackFinished:) name:MPMoviePlayerPlaybackDidFinishNotification object:moviePlayerController];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_onAirPlayStateChanged) name:MPMoviePlayerIsAirPlayVideoActiveDidChangeNotification object:moviePlayerController];
     
     [self _prepareMidrollSlots];
     [self startTimer];
@@ -224,63 +195,62 @@
 	// When AdManager has finished playing a linear slot, it instructs the player to resume.
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_onContentResumeRequest:) name:FW_NOTIFICATION_CONTENT_RESUME_REQUEST object:adContext];
     
-    [_player play];
+    [moviePlayerController play];
 }
 
 - (void)_pauseContentMovie {
     NSLog(@"Pause content video...");
     [self disableContentAirPlay];
-    [_contentVideoView removeFromSuperview];
+	[moviePlayerController pause];
+    [moviePlayerController.view removeFromSuperview];
     [moviePlayerSuperview addSubview:_adVideoView];
-    [_player pause];
 }
 
 - (void)_resumeContentMovie {
     NSLog(@"Resume content video");
     [_adVideoView removeFromSuperview];
-    [moviePlayerSuperview addSubview:_contentVideoView];
+    [moviePlayerSuperview addSubview:moviePlayerController.view];
     [self enableContentAirPlay];
-    [_player play];
+    [moviePlayerController play];
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
-	NSLog(@"keyPath=%@", keyPath);
-	if (object == [_player currentItem] && [keyPath isEqualToString:@"status"]){
-		[[_player currentItem] removeObserver:self forKeyPath:@"status"];
-		if ([[_player currentItem] status] == AVPlayerItemStatusReadyToPlay){
-			NSLog(@"ready to play");
-			[_loadingIndicator stopAnimating];
-            [adContext setVideoState:FW_VIDEO_STATE_PLAYING];
-            BOOL isAirPlayAcive = ([[[UIDevice currentDevice] systemVersion] doubleValue] >= 6.0 && _player.externalPlaybackActive) || _player.airPlayVideoActive;
-            if (isAirPlayAcive) {
-                [self _onAirPlayStarted:nil];
-            }
+- (void)_onMovieLoadStateChanged:(NSNotification *)notification {
+	NSLog(@"_onMovieLoadStateChanged %@ %d", notification, [moviePlayerController loadState]);
+	if ([moviePlayerController loadState] & MPMovieLoadStatePlayable) {
+		//this notification might be triggered several times. only need to handle the first playable notification
+		[[NSNotificationCenter defaultCenter] removeObserver:self name:MPMoviePlayerLoadStateDidChangeNotification object:moviePlayerController];
+		[adContext setVideoState:FW_VIDEO_STATE_PLAYING];
+		if (moviePlayerController.airPlayVideoActive) {
+		    [self _onAirPlayStarted:nil];
 		}
-		else if ([[_player currentItem] status] == AVPlayerItemStatusFailed){
-			NSLog(@"Failed to play");
-            [adContext setVideoState:FW_VIDEO_STATE_STOPPED];
-		}
-	} else if (object == _player && [keyPath isEqualToString:@"externalPlaybackActive"]) { // iOS 6.0+
-        if (_player.externalPlaybackActive) {
-            [self _onAirPlayStarted:nil];
-        } else {
-            [self _onAirPlayStopped:nil];
-        }
-    } else if (object == _player && [keyPath isEqualToString:@"airPlayVideoActive"]) { // iOS 5.x
-        if (_player.airPlayVideoActive) {
-            [self _onAirPlayStarted:nil];
-        } else {
-            [self _onAirPlayStopped:nil];
-        }
-    }
+	}
 }
 
-- (void)_onAVPlayerItemEnd:(NSNotification *)notification {
-	NSLog(@"Content played to the end %@", notification);
+- (void)_onAirPlayStateChanged:(NSNotification *)notification {
+	NSLog(@"_onAirPlayStateChanged %@", notification);
+	if (moviePlayerController.airPlayVideoActive) {
+		[self _onAirPlayStarted:nil];
+	} else {
+		[self _onAirPlayStopped:nil];
+	}
+}
+
+- (void)_onMoviePlaybackFinished:(NSNotification *)notification {
+	NSLog(@"_onMoviePlaybackFinished %@", notification);
+	[[NSNotificationCenter defaultCenter] removeObserver:self name:MPMoviePlayerPlaybackDidFinishNotification object:moviePlayerController];
 	[adContext setVideoState:FW_VIDEO_STATE_COMPLETED];
     [self _pauseContentMovie];
     [self stopTimer];
 	[self _playPostrollAdSlots];
+}
+
+- (void)_onMoviePlaybackStateDidChange:(NSNotification *)notification {
+	NSLog(@"_onMoviePlaybackStateDidChange %d", moviePlayerController.playbackState);
+	if (moviePlayerController.playbackState == MPMoviePlaybackStatePlaying) {
+		[adContext setVideoState:FW_VIDEO_STATE_PLAYING];
+	} else if (moviePlayerController.playbackState == MPMoviePlaybackStatePaused) {
+		[adContext setVideoState:FW_VIDEO_STATE_PAUSED];
+	}
 }
 
 - (void)_cleanupFreeWheel {

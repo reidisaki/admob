@@ -1,0 +1,346 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		123D8BE4120072F800A43431 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 123D8BE3120072F800A43431 /* icon.png */; };
+		12418525157FAE8800C941EE /* FWPlayerCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 12418524157FAE8800C941EE /* FWPlayerCommon.m */; };
+		1247179012D48A13006B9382 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1247178F12D48A13006B9382 /* AVFoundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		12601F4412E07D28009BDCED /* FWPlayerAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 12601F2212E07D28009BDCED /* FWPlayerAppDelegate.m */; };
+		12601F5112E07D28009BDCED /* FWPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12601F3C12E07D28009BDCED /* FWPlayerViewController.m */; };
+		128ADBA012DAD568008D83A8 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 128ADB9F12DAD568008D83A8 /* CoreMedia.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		12B9548711F6C5C400007B59 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 12B9548611F6C5C400007B59 /* libxml2.dylib */; };
+		12B9548911F6C5D000007B59 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12B9548811F6C5D000007B59 /* QuartzCore.framework */; };
+		12B9548B11F6C5D700007B59 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12B9548A11F6C5D700007B59 /* MediaPlayer.framework */; };
+		12B9548D11F6C5DD00007B59 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12B9548C11F6C5DD00007B59 /* CoreLocation.framework */; };
+		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
+		70CF621B1262F40700356314 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70CF621A1262F40700356314 /* iAd.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		7381FA841251C1F10007F59A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7381FA831251C1F10007F59A /* AudioToolbox.framework */; };
+		7381FAAD1251C2E30007F59A /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7381FAAC1251C2E30007F59A /* MessageUI.framework */; };
+		8A3DCF51169FF851004D852F /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A3DCF4F169FF83A004D852F /* EventKit.framework */; };
+		8A3DCF52169FF854004D852F /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A3DCF4C169FF82D004D852F /* AssetsLibrary.framework */; };
+		8A3DCF5516A00BE4004D852F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A3DCF5416A00BE4004D852F /* Security.framework */; };
+		8A63408317C4186A007AB185 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A63408217C4186A007AB185 /* AdSupport.framework */; };
+		8ACE29D3185B1A1C001C0185 /* airplay.png in Resources */ = {isa = PBXBuildFile; fileRef = 8ACE29D2185B1A1C001C0185 /* airplay.png */; };
+		8E943B6615A56A7C001BF196 /* AdManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E943B6515A56A7C001BF196 /* AdManager.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		123D8BE3120072F800A43431 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		12418523157FAE8800C941EE /* FWPlayerCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FWPlayerCommon.h; sourceTree = "<group>"; };
+		12418524157FAE8800C941EE /* FWPlayerCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FWPlayerCommon.m; sourceTree = "<group>"; };
+		1247178F12D48A13006B9382 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		12601F2112E07D28009BDCED /* FWPlayerAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FWPlayerAppDelegate.h; sourceTree = "<group>"; };
+		12601F2212E07D28009BDCED /* FWPlayerAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FWPlayerAppDelegate.m; sourceTree = "<group>"; };
+		12601F3B12E07D28009BDCED /* FWPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FWPlayerViewController.h; sourceTree = "<group>"; };
+		12601F3C12E07D28009BDCED /* FWPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FWPlayerViewController.m; sourceTree = "<group>"; };
+		128ADB9F12DAD568008D83A8 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		12B9548611F6C5C400007B59 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		12B9548811F6C5D000007B59 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		12B9548A11F6C5D700007B59 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		12B9548C11F6C5DD00007B59 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1D6058910D05DD3D006BFB54 /* FWPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FWPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		32CA4F630368D1EE00C91783 /* FWPlayer_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FWPlayer_Prefix.pch; sourceTree = "<group>"; };
+		70CF621A1262F40700356314 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		7381FA831251C1F10007F59A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		7381FAAC1251C2E30007F59A /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		8A3DCF4C169FF82D004D852F /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		8A3DCF4F169FF83A004D852F /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		8A3DCF5416A00BE4004D852F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		8A63408217C4186A007AB185 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		8ACE29D2185B1A1C001C0185 /* airplay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = airplay.png; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* FWPlayer-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "FWPlayer-Info.plist"; path = "../FWPlayer-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		8E943B6515A56A7C001BF196 /* AdManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AdManager.framework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A63408317C4186A007AB185 /* AdSupport.framework in Frameworks */,
+				8A3DCF5516A00BE4004D852F /* Security.framework in Frameworks */,
+				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
+				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
+				8A3DCF51169FF851004D852F /* EventKit.framework in Frameworks */,
+				8A3DCF52169FF854004D852F /* AssetsLibrary.framework in Frameworks */,
+				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
+				12B9548711F6C5C400007B59 /* libxml2.dylib in Frameworks */,
+				12B9548911F6C5D000007B59 /* QuartzCore.framework in Frameworks */,
+				12B9548B11F6C5D700007B59 /* MediaPlayer.framework in Frameworks */,
+				12B9548D11F6C5DD00007B59 /* CoreLocation.framework in Frameworks */,
+				7381FA841251C1F10007F59A /* AudioToolbox.framework in Frameworks */,
+				7381FAAD1251C2E30007F59A /* MessageUI.framework in Frameworks */,
+				70CF621B1262F40700356314 /* iAd.framework in Frameworks */,
+				1247179012D48A13006B9382 /* AVFoundation.framework in Frameworks */,
+				128ADBA012DAD568008D83A8 /* CoreMedia.framework in Frameworks */,
+				8E943B6615A56A7C001BF196 /* AdManager.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				12418523157FAE8800C941EE /* FWPlayerCommon.h */,
+				12418524157FAE8800C941EE /* FWPlayerCommon.m */,
+				12601F2112E07D28009BDCED /* FWPlayerAppDelegate.h */,
+				12601F2212E07D28009BDCED /* FWPlayerAppDelegate.m */,
+				12601F3B12E07D28009BDCED /* FWPlayerViewController.h */,
+				12601F3C12E07D28009BDCED /* FWPlayerViewController.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D6058910D05DD3D006BFB54 /* FWPlayer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				8A63408217C4186A007AB185 /* AdSupport.framework */,
+				8A3DCF5416A00BE4004D852F /* Security.framework */,
+				7381FAB21251C30E0007F59A /* Resources */,
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = CustomTemplate;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				32CA4F630368D1EE00C91783 /* FWPlayer_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8A3DCF4F169FF83A004D852F /* EventKit.framework */,
+				8A3DCF4C169FF82D004D852F /* AssetsLibrary.framework */,
+				8E943B6515A56A7C001BF196 /* AdManager.framework */,
+				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
+				12B9548C11F6C5DD00007B59 /* CoreLocation.framework */,
+				1D30AB110D05D00D00671497 /* Foundation.framework */,
+				12B9548611F6C5C400007B59 /* libxml2.dylib */,
+				12B9548A11F6C5D700007B59 /* MediaPlayer.framework */,
+				12B9548811F6C5D000007B59 /* QuartzCore.framework */,
+				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
+				7381FA831251C1F10007F59A /* AudioToolbox.framework */,
+				7381FAAC1251C2E30007F59A /* MessageUI.framework */,
+				70CF621A1262F40700356314 /* iAd.framework */,
+				1247178F12D48A13006B9382 /* AVFoundation.framework */,
+				128ADB9F12DAD568008D83A8 /* CoreMedia.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7381FAB21251C30E0007F59A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8ACE29D2185B1A1C001C0185 /* airplay.png */,
+				123D8BE3120072F800A43431 /* icon.png */,
+				8D1107310486CEB800E47090 /* FWPlayer-Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D6058900D05DD3D006BFB54 /* FWPlayer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "FWPlayer" */;
+			buildPhases = (
+				1D60588D0D05DD3D006BFB54 /* Resources */,
+				1D60588E0D05DD3D006BFB54 /* Sources */,
+				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FWPlayer;
+			productName = FWPlayer;
+			productReference = 1D6058910D05DD3D006BFB54 /* FWPlayer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+			};
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "FWPlayer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D6058900D05DD3D006BFB54 /* FWPlayer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D60588D0D05DD3D006BFB54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8ACE29D3185B1A1C001C0185 /* airplay.png in Resources */,
+				123D8BE4120072F800A43431 /* icon.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D60588E0D05DD3D006BFB54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				12601F4412E07D28009BDCED /* FWPlayerAppDelegate.m in Sources */,
+				12601F5112E07D28009BDCED /* FWPlayerViewController.m in Sources */,
+				12418525157FAE8800C941EE /* FWPlayerCommon.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1D6058940D05DD3E006BFB54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = FWPlayer_Prefix.pch;
+				INFOPLIST_FILE = "FWPlayer-Info.plist";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = FWPlayer;
+				RUN_CLANG_STATIC_ANALYZER = YES;
+			};
+			name = Debug;
+		};
+		1D6058950D05DD3E006BFB54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = FWPlayer_Prefix.pch;
+				INFOPLIST_FILE = "FWPlayer-Info.plist";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = FWPlayer;
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_LDFLAGS = "";
+				PREBINDING = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_LDFLAGS = "";
+				PREBINDING = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "FWPlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D6058940D05DD3E006BFB54 /* Debug */,
+				1D6058950D05DD3E006BFB54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "FWPlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}

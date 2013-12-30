@@ -4,7 +4,7 @@
 #define FWPLAYER_MOVIE_PLAYER_SUPERVIEW_FRAME CGRectMake(10, 1, 270, 165)
 #define FWPLAYER_MOVIE_PLAYER_VIEW_FRAME CGRectMake(0, 0, 270, 165)
 #define FWPLAYER_AD_REQUEST_TIMEOUT 5
-#define TIMELINE_TIMER_INTERVAL 0.5
+#define TIMELINE_TIMER_INTERVAL 2
 
 @interface FWPlayerViewController : UIViewController {
 	XRETAIN UIView *moviePlayerSuperview;
@@ -14,11 +14,8 @@
 	XASSIGN NSTimer *_tickTimer;
     XRETAIN UIView *_contentVideoView;
     XRETAIN UIView *_adVideoView;
-    XRETAIN AVPlayer *_player;
     XRETAIN NSTimer *_timer;
-    XRETAIN UIView *_airplayView;
-    XRETAIN AVPlayerLayer *_playerLayer;
-	XRETAIN UIActivityIndicatorView *_loadingIndicator;
+	XRETAIN UIView *_airplayView;
 }
 
 @property (nonatomic, strong) UIView *moviePlayerSuperview;
@@ -32,9 +29,6 @@
 - (void)_playPostrollAdSlots;
 - (void)_onAdSlotEnded:(NSNotification *)notification;
 - (void)_playContentMovie;
-- (void)_onAVPlayerItemEnd:(NSNotification *)notification;
-- (void)_onAirPlayStarted:(NSNotification *)notification;
-- (void)_onAirPlayStopped:(NSNotification *)notification;
 - (void)_cleanup;
 
 @end

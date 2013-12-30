@@ -71,8 +71,8 @@
 	[temporalSlots addObjectsFromArray:[adContext getSlotsByTimePositionClass:FW_TIME_POSITION_CLASS_PREROLL]];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_onAdSlotEnded:) name:FW_NOTIFICATION_SLOT_ENDED object:adContext];
     [self disableContentAirPlay];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_onAirPlayStarted:) name:FW_NOTIFICATION_AD_EXTERNAL_PLAYBACK_STARTED object:adContext];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_onAirPlayStopped:) name:FW_NOTIFICATION_AD_EXTERNAL_PLAYBACK_STOPPED object:adContext];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_onAirPlayStarted:) name:FW_NOTIFICATION_SLOT_EXTERNAL_PLAYBACK_STARTED object:adContext];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_onAirPlayStopped:) name:FW_NOTIFICATION_SLOT_EXTERNAL_PLAYBACK_STOPPED object:adContext];
 	[self _playPrerollAdSlots];
 }
 

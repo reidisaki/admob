@@ -185,7 +185,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_onMovieLoadStateChanged:) name:MPMoviePlayerLoadStateDidChangeNotification object:moviePlayerController];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_onMoviePlaybackStateDidChange:) name:MPMoviePlayerPlaybackStateDidChangeNotification object:moviePlayerController];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_onMoviePlaybackFinished:) name:MPMoviePlayerPlaybackDidFinishNotification object:moviePlayerController];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_onAirPlayStateChanged) name:MPMoviePlayerIsAirPlayVideoActiveDidChangeNotification object:moviePlayerController];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_onAirPlayStateChanged:) name:MPMoviePlayerIsAirPlayVideoActiveDidChangeNotification object:moviePlayerController];
     
     [self _prepareMidrollSlots];
     [self startTimer];

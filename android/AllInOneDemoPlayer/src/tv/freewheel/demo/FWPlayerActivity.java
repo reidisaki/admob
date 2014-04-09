@@ -25,6 +25,7 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.MediaController;
 import android.widget.Toast;
@@ -53,6 +54,7 @@ public class FWPlayerActivity extends Activity implements MediaPlayer.OnErrorLis
 	private FrameLayout videoFrameLayout = null;
 	private FrameLayout displayFrameLayout = null;
 	private MediaController mediaController = null;
+	private ImageButton pauseAdCloseButton = null;
 	private double videoDuration = 0.0;
 
 	// Ideally, your IAdManager instance is reused throughout your app
@@ -69,6 +71,7 @@ public class FWPlayerActivity extends Activity implements MediaPlayer.OnErrorLis
 	private int deviceWidthInDip;
 	private int deviceHeightInDip;
 	private DisplayMetrics displaymetrics;
+	private int pausedTimePosition = 0;
 	
     /** Get a random value for cache busting and tracking video views */
 	private int random(int ceiling) {
@@ -169,6 +172,7 @@ public class FWPlayerActivity extends Activity implements MediaPlayer.OnErrorLis
         videoPlayer = (FWVideoView) findViewById(R.id.videoView1);
 		videoFrameLayout = (FrameLayout)findViewById(R.id.frameLayout1);
 		displayFrameLayout = (FrameLayout)findViewById(R.id.displayView);
+		pauseAdCloseButton = (ImageButton)findViewById(R.id.pauseAdCloseButton);
         mediaController = new MediaController(this);
         mediaController.setMediaPlayer(videoPlayer);
         mediaController.hide();
@@ -257,7 +261,7 @@ public class FWPlayerActivity extends Activity implements MediaPlayer.OnErrorLis
 			}
 		});
 		
-		// Submit request with 3s timeout
+		// Submit request with 5s timeout
 		fwContext.submitRequest(5.0);
 	}
 	
@@ -279,6 +283,9 @@ public class FWPlayerActivity extends Activity implements MediaPlayer.OnErrorLis
 				if (startedSlot.getTimePositionClass() != fwConstants.TIME_POSITION_CLASS_DISPLAY()) {
 					currentTemporalSlot = startedSlot;
 				}
+				if (startedSlot.getTimePositionClass() == fwConstants.TIME_POSITION_CLASS_PAUSE_MIDROLL()) {
+					pauseAdCloseButton.setVisibility(View.VISIBLE);
+				}
 			}
 		});
 		fwContext.addEventListener(fwConstants.EVENT_SLOT_ENDED(), new IEventListener() {
@@ -292,10 +299,17 @@ public class FWPlayerActivity extends Activity implements MediaPlayer.OnErrorLis
 				if (completedSlot == null) {
 					return;
 				}
+				if (completedSlot.getTimePositionClass() != fwConstants.TIME_POSITION_CLASS_DISPLAY()) {
+					currentTemporalSlot = null;
+				}
 				if (completedSlot.getTimePositionClass() == fwConstants.TIME_POSITION_CLASS_PREROLL()) {
 					playNextPreroll();
 				} else if (completedSlot.getTimePositionClass() == fwConstants.TIME_POSITION_CLASS_POSTROLL()) {
 					playNextPostroll();
+				} else if (completedSlot.getTimePositionClass() == fwConstants.TIME_POSITION_CLASS_PAUSE_MIDROLL()) {
+					pauseAdCloseButton.setVisibility(View.INVISIBLE);
+					videoPlayer.setVisibility(View.VISIBLE);
+					videoPlayer.seekTo(pausedTimePosition);
 				} else if (completedSlot.getCustomId().equals("splash_slot")) {
 					setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
 					enterMainActivity();
@@ -386,7 +400,7 @@ public class FWPlayerActivity extends Activity implements MediaPlayer.OnErrorLis
 		    @Override
 		    public void onPlay() {
 		        Log.d(FWPlayerActivity.TAG, "Play/Resume content video");
-		        if (currentTemporalSlot.getTimePositionClass() == fwConstants.TIME_POSITION_CLASS_PAUSE_MIDROLL()) {
+		        if (currentTemporalSlot != null && currentTemporalSlot.getTimePositionClass() == fwConstants.TIME_POSITION_CLASS_PAUSE_MIDROLL()) {
 		        	currentTemporalSlot.stop();
 		        }
 		    }
@@ -394,9 +408,11 @@ public class FWPlayerActivity extends Activity implements MediaPlayer.OnErrorLis
 		    @Override
 		    public void onPause() {
 		    	Log.d(FWPlayerActivity.TAG, "Pause content video");
-		    	if (fwPauseMidrollSlots.size() > 0) {
+		    	if (fwPauseMidrollSlots.size() > 0 && currentTemporalSlot == null) {
 		    		int index = random(fwPauseMidrollSlots.size());
 		    		ISlot pauseMidroll = fwPauseMidrollSlots.get(index);
+		    		pausedTimePosition = videoPlayer.getCurrentPosition();
+		    		videoPlayer.setVisibility(View.INVISIBLE);
 		    		pauseMidroll.play();
 		    	}
 		    }
@@ -509,5 +525,17 @@ public class FWPlayerActivity extends Activity implements MediaPlayer.OnErrorLis
 	        this.showActionBar();
 	        this.goNonFullScreen();
 	    }
+	}
+	
+	public void onPauseAdCloseButtonClicked(View view) {
+		Log.d(TAG, "Pause ad close button clicked");
+		new Handler(this.getMainLooper()).post(new Runnable() {
+			public void run() {
+				pauseAdCloseButton.setVisibility(View.INVISIBLE);
+				if (currentTemporalSlot != null && currentTemporalSlot.getTimePositionClass() == fwConstants.TIME_POSITION_CLASS_PAUSE_MIDROLL()) {
+					currentTemporalSlot.stop();
+				}
+			}
+		});
 	}
 }

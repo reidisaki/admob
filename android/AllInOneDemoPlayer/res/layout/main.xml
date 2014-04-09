@@ -21,7 +21,15 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="invisible"/>
-        
+        <ImageButton
+            android:id="@+id/pauseAdCloseButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|right"
+            android:visibility="invisible"
+            android:src="@drawable/close_button"
+            android:contentDescription="Close the Pause Ad"
+            android:onClick="onPauseAdCloseButtonClicked" />
     </FrameLayout>
     
     <FrameLayout 

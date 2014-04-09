@@ -1,4 +1,4 @@
-Android Preroll Demo Player
+Android All-in-one Demo Player
 ===
 
 1. Rename local.example.properties to local.properties and modify the value of

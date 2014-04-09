@@ -69,7 +69,6 @@ public class FWPlayerActivity extends Activity implements MediaPlayer.OnErrorLis
 	private int deviceWidthInDip;
 	private int deviceHeightInDip;
 	private DisplayMetrics displaymetrics;
-	private boolean fullscreen = false;
 	
     /** Get a random value for cache busting and tracking video views */
 	private int random(int ceiling) {
@@ -114,15 +113,6 @@ public class FWPlayerActivity extends Activity implements MediaPlayer.OnErrorLis
 	    case R.id.action_settings:
 	        this.startConfigActivity();
 	        break;
-	    case R.id.action_fullscreen:
-	    	if (!this.fullscreen) {
-	    		item.setTitle("Go nonfullscreen");
-	    		this.goFullscreen();
-	    	} else {
-	    		item.setTitle("Go fullscreen");
-	    		this.goNonFullScreen();
-	    	}
-	    	break;
 	    default:
 	        break;
 	    }
@@ -486,7 +476,6 @@ public class FWPlayerActivity extends Activity implements MediaPlayer.OnErrorLis
 	private void goFullscreen() {
 		new Handler(this.getMainLooper()).post(new Runnable() {
 			public void run() {
-		        fullscreen = true;
 		        displayFrameLayout.setVisibility(View.INVISIBLE);
 		        LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
 		        videoFrameLayout.setLayoutParams(p);
@@ -498,7 +487,6 @@ public class FWPlayerActivity extends Activity implements MediaPlayer.OnErrorLis
 	private void goNonFullScreen() {
 		new Handler(this.getMainLooper()).post(new Runnable() {
 			public void run() {
-		        fullscreen = false;
 		        LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, (int)(500 * displaymetrics.density));
 		        videoFrameLayout.setLayoutParams(p);
 		        videoFrameLayout.invalidate();
@@ -519,9 +507,7 @@ public class FWPlayerActivity extends Activity implements MediaPlayer.OnErrorLis
 	        Toast.makeText(this, "portrait", Toast.LENGTH_SHORT).show();
 	        this.loadDeviceDimension();
 	        this.showActionBar();
-	        if (!this.fullscreen) {
-	        	this.goNonFullScreen();
-	        }
+	        this.goNonFullScreen();
 	    }
 	}
 }

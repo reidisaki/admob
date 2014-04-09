@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+    <Button
+            android:id="@+id/configCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:onClick="onCancelClicked"
+            android:text="@string/cancel" />
+
+    <Button
+            android:id="@+id/configSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:onClick="onSaveClicked"
+            android:text="@string/save" />
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_below="@id/configSave" >
+
+        <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:stretchColumns="1"
+                android:shrinkColumns="1" >
+
+
+            <TableRow
+                    android:id="@+id/networkIdRow" >
+                <TextView
+                        android:text="Network ID"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginTop="1dp"
+                        android:padding="5dp"
+                        android:gravity="right|center_vertical"/>
+                <EditText
+                        android:id="@+id/networkIdEdit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:ellipsize="end"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:inputType="number" />
+            </TableRow>
+            
+            <TableRow
+                    android:id="@+id/adsUrlRow" >
+                <TextView
+                        android:text="Ad Server URL"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginTop="1dp"
+                        android:padding="5dp"
+                        android:gravity="right|center_vertical"/>
+                <EditText
+                        android:id="@+id/adsUrlEdit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:ellipsize="end"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:inputType="textUri" />
+            </TableRow>
+            
+            <TableRow
+                    android:id="@+id/profileRow" >
+                <TextView
+                        android:text="Profile"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginTop="1dp"
+                        android:padding="5dp"
+                        android:gravity="right|center_vertical"/>
+                <EditText
+                        android:id="@+id/profileEdit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:ellipsize="end"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:inputType="text" />
+            </TableRow>
+            
+            <TableRow
+                    android:id="@+id/siteSectionIdRow" >
+                <TextView
+                        android:text="Site Section ID"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginTop="1dp"
+                        android:padding="5dp"
+                        android:gravity="right|center_vertical"/>
+                <EditText
+                        android:id="@+id/siteSectionIdEdit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:ellipsize="end"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp" 
+                        android:inputType="text" />
+            </TableRow>
+            
+            <TableRow
+                    android:id="@+id/videoAssetIdRow" >
+                <TextView
+                        android:text="Video Asset ID"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginTop="1dp"
+                        android:padding="5dp"
+                        android:gravity="right|center_vertical"/>
+                <EditText
+                        android:id="@+id/videoAssetIdEdit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:ellipsize="end"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:inputType="text" />
+            </TableRow>
+            
+            <TableRow
+                    android:id="@+id/displayWidthRow" >
+                <TextView
+                        android:text="Display width (in dip)"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginTop="1dp"
+                        android:padding="5dp"
+                        android:gravity="right|center_vertical"/>
+                <EditText
+                        android:id="@+id/displayWidthEdit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:ellipsize="end"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:inputType="number" />
+            </TableRow>
+            
+            <TableRow
+                    android:id="@+id/displayHeightRow" >
+                <TextView
+                        android:text="Display Height (in dip)"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginTop="1dp"
+                        android:padding="5dp"
+                        android:gravity="right|center_vertical"/>
+                <EditText
+                        android:id="@+id/displayHeightEdit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:ellipsize="end"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:inputType="number" />
+            </TableRow>
+
+
+        </TableLayout>
+
+    </ScrollView>
+</RelativeLayout>

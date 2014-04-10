@@ -27,6 +27,8 @@ public class FWVideoView extends VideoView {
 	private OnCompletionListener externalOnCompletionListener = null;
 	private PlayPauseListener mPlayPauseListener = null;
 	
+	private boolean isPausedByUser = false;
+	
 	public FWVideoView(Context androidContext) {
 		super(androidContext);
 	}
@@ -70,13 +72,27 @@ public class FWVideoView extends VideoView {
 		}
 	}
 	
-	@Override
-	public void pause() {
+	public void pauseByPlayer() {
 		super.pause();
 		if (fwContext != null) {
-			Log.d(TAG, "pause(): Setting video state to paused");
+			Log.d(TAG, "Setting video state to paused");
 			fwContext.setVideoState(fwConstants.VIDEO_STATE_PAUSED());
 		}
+	}
+	
+	public void resumeByPlayer() {
+		super.resume();
+		if (fwContext != null) {
+			Log.d(TAG, "Setting video state to playing");
+			fwContext.setVideoState(fwConstants.VIDEO_STATE_PLAYING());
+		}
+	}
+	
+	@Override
+	public void pause() {
+		Log.d(TAG, "Paused by the user");
+		this.pauseByPlayer();
+		isPausedByUser = true;
 		if (this.mPlayPauseListener != null) {
             mPlayPauseListener.onPause();
         }
@@ -84,11 +100,9 @@ public class FWVideoView extends VideoView {
 
 	@Override
 	public void resume() {
-		super.resume();
-		if (fwContext != null) {
-			Log.d(TAG, "resume(): Setting video state to playing");
-			fwContext.setVideoState(fwConstants.VIDEO_STATE_PLAYING());
-		}
+		Log.d(TAG, "Paused by the user");
+		this.resumeByPlayer();
+		isPausedByUser = false;
 		if (this.mPlayPauseListener != null) {
             mPlayPauseListener.onPlay();
         }
@@ -110,5 +124,9 @@ public class FWVideoView extends VideoView {
     
     public void setPlayPauseListener(PlayPauseListener listener) {
         mPlayPauseListener = listener;
+    }
+    
+    public boolean isPausedByUser() {
+    	return isPausedByUser;
     }
 }

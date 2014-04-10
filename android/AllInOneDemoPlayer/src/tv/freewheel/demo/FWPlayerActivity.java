@@ -1,6 +1,8 @@
 package tv.freewheel.demo;
 
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -65,6 +67,7 @@ public class FWPlayerActivity extends Activity implements MediaPlayer.OnErrorLis
 	private List<ISlot> fwPrerollSlots;
 	private List<ISlot> fwPostrollSlots;
 	private List<ISlot> fwPauseMidrollSlots;
+	private List<ISlot> fwMidrollAndOverlaySlots;
 	private ISlot fwDisplaySlot;
 	private ISlot currentTemporalSlot;
 	
@@ -72,6 +75,8 @@ public class FWPlayerActivity extends Activity implements MediaPlayer.OnErrorLis
 	private int deviceHeightInDip;
 	private DisplayMetrics displaymetrics;
 	private int pausedTimePosition = 0;
+	private boolean appInFront = true;
+	private Timer fwCuepointTimer = null;
 	
     /** Get a random value for cache busting and tracking video views */
 	private int random(int ceiling) {
@@ -146,6 +151,10 @@ public class FWPlayerActivity extends Activity implements MediaPlayer.OnErrorLis
     		this.displayFrameLayout.removeAllViews();
     	}
     	this.videoPlayer.stopPlayback();
+    	if (this.fwCuepointTimer != null) {
+    		this.fwCuepointTimer.cancel();
+    		this.fwCuepointTimer = null;
+    	}
     	fwContext.setVideoState(fwConstants.VIDEO_STATE_COMPLETED());
     	this.fwContext = null;
     	
@@ -165,7 +174,6 @@ public class FWPlayerActivity extends Activity implements MediaPlayer.OnErrorLis
         this.loadDeviceDimension();
         setContentView(R.layout.main);
         
-        // Use our fw_tutorial raw resource
         videoURI = Uri.parse("android.resource://" + getApplicationContext().getPackageName() + "/" + R.raw.fw_tutorial);
         
         // Get and setup our video player
@@ -232,9 +240,11 @@ public class FWPlayerActivity extends Activity implements MediaPlayer.OnErrorLis
 		// add a display slot which accepts companion
 		fwContext.addSiteSectionNonTemporalSlot("display_slot", null, FWConfig.displayWidth, FWConfig.displayHeight, null, true, null, null);
 		
-		// add a pause midroll slot
+		// add temporal slots
 		fwContext.addTemporalSlot("pre_slot", "preroll", 0, null, 0, 0, null, null, 0);
 		fwContext.addTemporalSlot("post_slot", "postroll", 60, null, 0, 0, null, null, 0);
+		fwContext.addTemporalSlot("mid_slot", "midroll", 5, null, 0, 0, null, null, 0);
+		fwContext.addTemporalSlot("overlay_slot", "overlay", 2, null, 0, 0, null, null, 0);
 		fwContext.addTemporalSlot("pause_slot", "pause_midroll", -1, null, -1, 0, null, null, 0);
 		fwContext.addTemporalSlot("pause_slot2", "pause_midroll", -1, null, -1, 0, null, null, 0);
 		
@@ -269,9 +279,13 @@ public class FWPlayerActivity extends Activity implements MediaPlayer.OnErrorLis
 		Log.d(TAG, "Playing preroll slots");
 		
 		videoPlayer.setFWContext(fwContext);
+		
+		// Retrieve temporal slots from ad context
 		fwPrerollSlots = fwContext.getSlotsByTimePositionClass(fwConstants.TIME_POSITION_CLASS_PREROLL());
 		fwPostrollSlots = fwContext.getSlotsByTimePositionClass(fwConstants.TIME_POSITION_CLASS_POSTROLL());
 		fwPauseMidrollSlots = fwContext.getSlotsByTimePositionClass(fwConstants.TIME_POSITION_CLASS_PAUSE_MIDROLL());
+		fwMidrollAndOverlaySlots = fwContext.getSlotsByTimePositionClass(fwConstants.TIME_POSITION_CLASS_MIDROLL());
+		fwMidrollAndOverlaySlots.addAll(fwContext.getSlotsByTimePositionClass(fwConstants.TIME_POSITION_CLASS_OVERLAY()));
 		
 		// We do this by treating slots returned from AdManager as a stack
 		// and play next slot once the current slot ends:
@@ -282,9 +296,6 @@ public class FWPlayerActivity extends Activity implements MediaPlayer.OnErrorLis
 				Log.d(TAG, "Started playing slot: " + startedSlotID);
 				if (startedSlot.getTimePositionClass() != fwConstants.TIME_POSITION_CLASS_DISPLAY()) {
 					currentTemporalSlot = startedSlot;
-				}
-				if (startedSlot.getTimePositionClass() == fwConstants.TIME_POSITION_CLASS_PAUSE_MIDROLL()) {
-					pauseAdCloseButton.setVisibility(View.VISIBLE);
 				}
 			}
 		});
@@ -314,6 +325,52 @@ public class FWPlayerActivity extends Activity implements MediaPlayer.OnErrorLis
 					setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
 					enterMainActivity();
 				}
+			}
+		});
+		fwContext.addEventListener(fwConstants.EVENT_AD_IMPRESSION(), new IEventListener() {
+			@Override
+			public void run(IEvent e) {
+				String customId = (String) e.getData().get(fwConstants.INFO_KEY_CUSTOM_ID());
+				ISlot slot = fwContext.getSlotByCustomId(customId);
+				int adId = (Integer) e.getData().get(fwConstants.INFO_KEY_AD_ID());
+				Log.d(TAG, "Ad event: " + e.getType() + ", slot customId: " + customId + ", adId: " + adId);
+				
+				// stop the splash slot after the splash ad lasts for 5 seconds
+				if (customId.equals("splash_slot")) {
+					Timer splash_timer = new Timer();
+					splash_timer.schedule(new TimerTask() {
+						@Override
+						public void run() {
+							new Handler(getMainLooper()).post(new Runnable() {
+								public void run() {
+									ISlot splashSlot = fwContext.getSlotByCustomId("splash_slot");
+									splashSlot.stop();
+								}
+							});
+						}
+					}, 5000);
+				} else if (slot.getTimePositionClass() == fwConstants.TIME_POSITION_CLASS_PAUSE_MIDROLL()) {
+					pauseAdCloseButton.setVisibility(View.VISIBLE);
+				} else if (slot.getTimePositionClass() == fwConstants.TIME_POSITION_CLASS_MIDROLL()) {
+					if (videoPlayer.isShown()) {
+						videoPlayer.setVisibility(View.INVISIBLE);
+					}
+				}
+			}
+		});
+		fwContext.addEventListener(fwConstants.EVENT_REQUEST_CONTENT_VIDEO_PAUSE(), new IEventListener() {
+			@Override
+			public void run(IEvent e) {
+				pausedTimePosition = videoPlayer.getCurrentPosition();
+				videoPlayer.pauseByPlayer();
+			}
+		});
+		fwContext.addEventListener(fwConstants.EVENT_REQUEST_CONTENT_VIDEO_RESUME(), new IEventListener() {
+			@Override
+			public void run(IEvent e) {
+				videoPlayer.setVisibility(View.VISIBLE);
+				videoPlayer.seekTo(pausedTimePosition);
+				videoPlayer.start();
 			}
 		});
 		
@@ -400,6 +457,9 @@ public class FWPlayerActivity extends Activity implements MediaPlayer.OnErrorLis
 		    @Override
 		    public void onPlay() {
 		        Log.d(FWPlayerActivity.TAG, "Play/Resume content video");
+		        if (fwContext == null) {
+		        	return;
+		        }
 		        if (currentTemporalSlot != null && currentTemporalSlot.getTimePositionClass() == fwConstants.TIME_POSITION_CLASS_PAUSE_MIDROLL()) {
 		        	currentTemporalSlot.stop();
 		        }
@@ -408,10 +468,13 @@ public class FWPlayerActivity extends Activity implements MediaPlayer.OnErrorLis
 		    @Override
 		    public void onPause() {
 		    	Log.d(FWPlayerActivity.TAG, "Pause content video");
-		    	if (fwPauseMidrollSlots.size() > 0 && currentTemporalSlot == null) {
+		    	if (fwContext == null) {
+		        	return;
+		        }
+		    	pausedTimePosition = videoPlayer.getCurrentPosition();
+		    	if (appInFront && currentTemporalSlot == null && fwPauseMidrollSlots.size() > 0 && currentTemporalSlot == null) {
 		    		int index = random(fwPauseMidrollSlots.size());
 		    		ISlot pauseMidroll = fwPauseMidrollSlots.get(index);
-		    		pausedTimePosition = videoPlayer.getCurrentPosition();
 		    		videoPlayer.setVisibility(View.INVISIBLE);
 		    		pauseMidroll.play();
 		    	}
@@ -424,11 +487,49 @@ public class FWPlayerActivity extends Activity implements MediaPlayer.OnErrorLis
 					public void run() {
 						fwContext.setVideoState(fwConstants.VIDEO_STATE_COMPLETED());
 						videoPlayer.setVisibility(View.INVISIBLE);
+						pausedTimePosition = 0;
+						if (fwCuepointTimer != null) {
+							fwCuepointTimer.cancel();
+							fwCuepointTimer = null;
+						}
 						playNextPostroll();
 					}
 				});
 			}	
 		});
+		
+		if (this.fwMidrollAndOverlaySlots != null && this.fwMidrollAndOverlaySlots.size() > 0) {
+			Log.d(TAG, "Start midroll/overlay timer");
+			this.fwCuepointTimer = new Timer();
+			this.fwCuepointTimer.scheduleAtFixedRate(new TimerTask() {
+				  @Override
+				  public void run() {
+					  if (fwMidrollAndOverlaySlots.size() > 0) {
+						  int i;
+						  for (i=0; i < fwMidrollAndOverlaySlots.size(); i++) {
+							  ISlot slot = fwMidrollAndOverlaySlots.get(i);
+							  int currentPosition = videoPlayer.getCurrentPosition();
+							  int slotTimePosition = (int)slot.getTimePosition() * 1000;
+							  double diff = slotTimePosition > currentPosition? slotTimePosition  - currentPosition : currentPosition - slotTimePosition;
+							  if (diff <= 1000) {
+								  Log.d(TAG, "Playing midroll or overlay slot:" + slot.getCustomId());
+								  break;
+							  }
+						  }
+						  if (i == fwMidrollAndOverlaySlots.size())
+							  return;
+						  final int index = i;
+						  new Handler(getMainLooper()).post(new Runnable() {
+							  public void run() {
+								  ISlot slotToPlay = fwMidrollAndOverlaySlots.get(index);
+								  fwMidrollAndOverlaySlots.remove(index);
+								  slotToPlay.play();
+							  }
+						  });
+					  }
+				  }
+				}, 500, 500);
+		}
 
 		new Handler(this.getMainLooper()).post(new Runnable() {
 			public void run() {
@@ -452,16 +553,32 @@ public class FWPlayerActivity extends Activity implements MediaPlayer.OnErrorLis
     @Override
 	protected void onPause() {
 		super.onPause();
+		appInFront = false;
 		if (fwContext != null) {
 			fwContext.setActivityState(fwConstants.ACTIVITY_STATE_PAUSE());
+		}
+		if (videoPlayer.isPlaying()) {
+			videoPlayer.pauseByPlayer();
+			pausedTimePosition = videoPlayer.getCurrentPosition();
+		}
+		if (currentTemporalSlot != null) {
+			currentTemporalSlot.pause();
 		}
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
+		appInFront = true;
 		if (fwContext != null) {
 			fwContext.setActivityState(fwConstants.ACTIVITY_STATE_RESUME());
+		}
+		if (pausedTimePosition > 0 && !videoPlayer.isPausedByUser() && (currentTemporalSlot == null || currentTemporalSlot.getTimePositionClass() == fwConstants.TIME_POSITION_CLASS_OVERLAY())) {
+			videoPlayer.seekTo(pausedTimePosition);
+			videoPlayer.resumeByPlayer();
+		}
+		if (currentTemporalSlot != null) {
+			currentTemporalSlot.resume();
 		}
 	}
 

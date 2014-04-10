@@ -1,6 +1,8 @@
 Android All-in-one Demo Player
 ===
 
+How to Compile
+--
 1. Rename local.example.properties to local.properties and modify the value of
    sdk.dir to the android SDK dir.
 2. Place the latest FWAdManager.jar into the libs directory.
@@ -8,3 +10,12 @@ Android All-in-one Demo Player
 
 Alternatively, you can import the project into Eclipse and run the application
 on the device.
+
+Description
+--
+This is an all-in-one demo player for FreeWheel Android SDK. The demo
+illustrates how to deal with various slots including prerolls, midrolls,
+overlays, postrolls, banner ads and interstitial ads in the player.
+Also the Settings UI enables the user to config Freewheel-related parameters
+dynamically and get different ads targeted on different site sections/video assets
+delivered.

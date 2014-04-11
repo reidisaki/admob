@@ -77,6 +77,7 @@ public class FWPlayerActivity extends Activity implements MediaPlayer.OnErrorLis
 	private int pausedTimePosition = 0;
 	private boolean appInFront = true;
 	private Timer fwCuepointTimer = null;
+	private boolean started = false;
 	
     /** Get a random value for cache busting and tracking video views */
 	private int random(int ceiling) {
@@ -157,6 +158,9 @@ public class FWPlayerActivity extends Activity implements MediaPlayer.OnErrorLis
     	}
     	fwContext.setVideoState(fwConstants.VIDEO_STATE_COMPLETED());
     	this.fwContext = null;
+    	started = false;
+    	this.hideActionBar();
+    	this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
     	
     	this.loadFWConfig();
     	this.initAdManager();
@@ -166,10 +170,11 @@ public class FWPlayerActivity extends Activity implements MediaPlayer.OnErrorLis
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.hideActionBar();
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, 
                                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        this.hideActionBar();
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         this.loadFWConfig();
         this.loadDeviceDimension();
         setContentView(R.layout.main);
@@ -322,7 +327,6 @@ public class FWPlayerActivity extends Activity implements MediaPlayer.OnErrorLis
 					videoPlayer.setVisibility(View.VISIBLE);
 					videoPlayer.seekTo(pausedTimePosition);
 				} else if (completedSlot.getCustomId().equals("splash_slot")) {
-					setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
 					enterMainActivity();
 				}
 			}
@@ -377,7 +381,6 @@ public class FWPlayerActivity extends Activity implements MediaPlayer.OnErrorLis
 		// show splash slot
 		ISlot splashSlot = this.fwContext.getSlotByCustomId("splash_slot");
 		if (splashSlot != null && splashSlot.getAdInstances().size() > 0) {
-			this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 			splashSlot.play();
 		} else {
 			this.enterMainActivity();
@@ -385,6 +388,8 @@ public class FWPlayerActivity extends Activity implements MediaPlayer.OnErrorLis
 	}
 	
 	private void enterMainActivity() {
+		started = true;
+		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
 		if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
 			this.showActionBar();
 		}
@@ -639,8 +644,10 @@ public class FWPlayerActivity extends Activity implements MediaPlayer.OnErrorLis
 	    } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
 	        Toast.makeText(this, "portrait", Toast.LENGTH_SHORT).show();
 	        this.loadDeviceDimension();
-	        this.showActionBar();
-	        this.goNonFullScreen();
+	        if (started) {
+	        	this.showActionBar();
+	        	this.goNonFullScreen();
+	        }
 	    }
 	}
 	

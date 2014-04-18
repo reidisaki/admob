@@ -176,8 +176,26 @@
                         android:layout_marginRight="1dp"
                         android:inputType="number" />
             </TableRow>
-
-
+            
+            <TableRow
+                    android:id="@+id/splashCompatibleDimensionsRow" >
+                <TextView
+                        android:text="Splash Compatible Dimensions (in dip)"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginTop="1dp"
+                        android:padding="5dp"
+                        android:gravity="right|center_vertical"/>
+                <EditText
+                        android:id="@+id/splashCompatibleDimensionsEdit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:ellipsize="end"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:inputType="text" />
+            </TableRow>
         </TableLayout>
 
     </ScrollView>

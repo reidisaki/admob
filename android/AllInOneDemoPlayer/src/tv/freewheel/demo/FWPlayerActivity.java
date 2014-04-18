@@ -239,8 +239,8 @@ public class FWPlayerActivity extends Activity implements MediaPlayer.OnErrorLis
 		fwContext.setSiteSection(fwSiteSectionId, random(Integer.MAX_VALUE), 0, fwConstants.ID_TYPE_CUSTOM(), 0);
 		fwContext.setVideoAsset(fwVideoAssetId, videoDuration, null, fwConstants.VIDEO_ASSET_AUTO_PLAY_TYPE_ATTENDED(), random(Integer.MAX_VALUE), 0, fwConstants.ID_TYPE_CUSTOM(), 0, fwConstants.VIDEO_ASSET_DURATION_TYPE_EXACT());
 		
-		// add display slot which accepts only interstitial ads
-		fwContext.addSiteSectionNonTemporalSlot("splash_slot", null, this.deviceWidthInDip, this.deviceHeightInDip, null, false, null, null);
+		// add a display slot which accepts only interstitial ads
+		fwContext.addSiteSectionNonTemporalSlot("splash_slot", null, this.deviceWidthInDip, this.deviceHeightInDip, null, false, null, null, 0, FWConfig.splashCompatibleDimensions);
 		
 		// add a display slot which accepts companion
 		fwContext.addSiteSectionNonTemporalSlot("display_slot", null, FWConfig.displayWidth, FWConfig.displayHeight, null, true, null, null);
@@ -340,6 +340,7 @@ public class FWPlayerActivity extends Activity implements MediaPlayer.OnErrorLis
 				Log.d(TAG, "Ad event: " + e.getType() + ", slot customId: " + customId + ", adId: " + adId);
 				
 				// stop the splash slot after the splash ad lasts for 5 seconds
+				
 				if (customId.equals("splash_slot")) {
 					Timer splash_timer = new Timer();
 					splash_timer.schedule(new TimerTask() {

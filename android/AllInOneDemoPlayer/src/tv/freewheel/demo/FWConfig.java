@@ -6,7 +6,6 @@ public class FWConfig {
 	// Each client gets their own network ID, AdManager URLs, and ad server URLs
 	// Please see your FreeWheel account manager or sales engineer for the
 	// appropriate values to use in your production player.
-	
 	public static String adserverUrl = "http://demo.v.fwmrm.net/";
 	public static int networkId = 42015;
 	
@@ -19,5 +18,7 @@ public class FWConfig {
 	
 	public static int displayWidth = 320;
 	public static int displayHeight = 50;
+	
+	public static String splashCompatibleDimensions = "";
 	
 }

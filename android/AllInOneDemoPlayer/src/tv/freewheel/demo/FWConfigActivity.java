@@ -15,6 +15,7 @@ public class FWConfigActivity extends Activity {
 	private EditText videoAssetIdEdit;
 	private EditText displayWidthEdit;
 	private EditText displayHeightEdit;
+	private EditText splashCompatibleDimensionsEdit;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,7 @@ public class FWConfigActivity extends Activity {
 		this.videoAssetIdEdit = (EditText)this.findViewById(R.id.videoAssetIdEdit);
 		this.displayWidthEdit = (EditText)this.findViewById(R.id.displayWidthEdit);
 		this.displayHeightEdit = (EditText)this.findViewById(R.id.displayHeightEdit);
+		this.splashCompatibleDimensionsEdit = (EditText)this.findViewById(R.id.splashCompatibleDimensionsEdit);
 	}
 	
 	private void loadConfig() {
@@ -48,6 +50,7 @@ public class FWConfigActivity extends Activity {
 		FWConfig.videoAssetId = this.videoAssetIdEdit.getText().toString();
 		FWConfig.displayWidth = Integer.parseInt(this.displayWidthEdit.getText().toString());
 		FWConfig.displayHeight = Integer.parseInt(this.displayHeightEdit.getText().toString());
+		FWConfig.splashCompatibleDimensions = this.splashCompatibleDimensionsEdit.getText().toString();
 	}
 	
 	public void onCancelClicked(View view) {

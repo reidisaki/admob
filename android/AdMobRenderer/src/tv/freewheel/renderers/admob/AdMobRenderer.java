@@ -7,6 +7,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.DisplayMetrics;
 
 import android.view.Gravity;
 import android.view.View;
@@ -140,6 +141,10 @@ public class AdMobRenderer implements IRenderer, AdListener, RendererTimer.IRend
 					bannerHeight = this.slot.getHeight();
 					this.logger.debug("Slot size " + bannerWidth + "x" + bannerHeight);
 				}
+				DisplayMetrics dm = this.rendererContext.getActivity().getResources().getDisplayMetrics();
+				bannerWidth *= dm.density;
+				bannerHeight *= dm.density;
+				this.logger.debug("Slot size in pixel: " + bannerWidth + "x" + bannerHeight);
 
 				// find first matched AdSize, it is the biggest that can fit into creative/slot size
 				for (AdSize s : Parameters.adSizes) {
@@ -301,27 +306,28 @@ public class AdMobRenderer implements IRenderer, AdListener, RendererTimer.IRend
 					);
 					if (slot.getTimePositionClass() == constants.TIME_POSITION_CLASS_OVERLAY()) {
 						// overlay
+						DisplayMetrics dm = rendererContext.getActivity().getResources().getDisplayMetrics();
 						logger.debug("Show overlay banner"
 								+ ", primaryAnchor " + params.primaryAnchor
-								+ ", marginWidth " + params.marginWidth
-								+ ", marginHeight " + params.marginHeight);
+								+ ", marginWidth " + params.marginWidth * dm.density
+								+ "px, marginHeight " + params.marginHeight * dm.density + "px");
 						p.gravity = Gravity.NO_GRAVITY;
 
 						if (params.primaryAnchor.contains("t")) {
 							p.gravity |= Gravity.TOP;
-							p.topMargin = params.marginHeight;
+							p.topMargin = (int)(params.marginHeight * dm.density);
 						}
 						if (params.primaryAnchor.contains("l")) {
 							p.gravity |= Gravity.LEFT;
-							p.leftMargin = params.marginWidth;
+							p.leftMargin = (int)(params.marginWidth * dm.density);
 						}
 						if (params.primaryAnchor.contains("r")) {
 							p.gravity |= Gravity.RIGHT;
-							p.rightMargin = params.marginWidth;
+							p.rightMargin = (int)(params.marginWidth * dm.density);
 						}
 						if (params.primaryAnchor.contains("b")) {
 							p.gravity |= Gravity.BOTTOM;
-							p.bottomMargin = params.marginHeight;
+							p.bottomMargin = (int)(params.marginHeight * dm.density);
 						}
 						if (params.primaryAnchor.contains("c")) {
 							p.gravity |= Gravity.CENTER_HORIZONTAL;

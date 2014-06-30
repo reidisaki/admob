@@ -1,21 +1,26 @@
 package tv.freewheel.renderers.admob;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import com.google.android.gms.ads.*;
+import com.google.android.gms.ads.search.SearchAdRequest;
+import com.google.android.gms.ads.search.SearchAdView;
+import com.google.android.gms.ads.search.SearchAdRequest.Builder;
+import com.google.android.gms.ads.AdRequest;
+
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.DisplayMetrics;
-
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
-import com.google.ads.*;
-import com.google.ads.searchads.SearchAdRequest;
+import tv.freewheel.ad.FreeWheelVersion;
 import tv.freewheel.ad.interfaces.IConstants;
 import tv.freewheel.ad.interfaces.ISlot;
 import tv.freewheel.utils.Logger;
@@ -25,7 +30,7 @@ import tv.freewheel.ad.interfaces.ICreativeRendition;
 import tv.freewheel.renderers.interfaces.IRenderer;
 import tv.freewheel.renderers.interfaces.IRendererContext;
 
-public class AdMobRenderer implements IRenderer, AdListener, RendererTimer.IRendererTimerService {
+public class AdMobRenderer extends AdListener implements IRenderer, RendererTimer.IRendererTimerService {
 	private IRendererContext rendererContext = null;
 	private IConstants constants = null;
 	private Parameters params = null;
@@ -33,11 +38,15 @@ public class AdMobRenderer implements IRenderer, AdListener, RendererTimer.IRend
 	private ISlot slot = null;
 
 	// AdMob
-	private AdRequest admobAdRequest = null;
-	private Ad admobAd = null;
-
+	private com.google.android.gms.ads.AdRequest.Builder admobAdRequest  = null;
+	private Builder admobSearchAdRequest = null;
+	private InterstitialAd interstitial = null;
+	//	private AdRequest admobAdRequest = null;
+	//	private SearchAdRequest admobSearchAdRequest = null;
+	private AdView admobAd = null;
+	private SearchAdView admobSearchAdView = null;
 	// auto-refresh
-	private boolean firstAd = true;
+	private boolean firstAd = true,interstitialDismissed = false, isInterstitial = false, isBanner = false;
 
 	// duration
 	private double duration = -1;
@@ -46,7 +55,6 @@ public class AdMobRenderer implements IRenderer, AdListener, RendererTimer.IRend
 	private AtomicInteger playHeadTime = new AtomicInteger(-1);
 	private RendererTimer rendererTimer = null;
 
-	private boolean interstitialDismissed = false;
 
 	private static int RENDERER_STATE_PLAYING = 0;
 	private static int RENDERER_STATE_PAUSED = 1;
@@ -55,12 +63,13 @@ public class AdMobRenderer implements IRenderer, AdListener, RendererTimer.IRend
 	private AtomicInteger rendererState = new AtomicInteger(RENDERER_STATE_PLAYING);
 
 	private Logger logger;
+	///Find out if this is an interstitial ad or not, find out if this is a search ad or banner ad 
 
 	public AdMobRenderer() {
 		this.logger = Logger.getLogger(this);
-		this.logger.info(FreeWheelVersion.RENDERER_VERSION);
+		this.logger.info(FreeWheelVersion.FW_SDK_INTERFACE_VERSION);
 	}
-	
+
 	@Override
 	public void load(IRendererContext rendererContext) {
 		this.logger.info("load");
@@ -74,11 +83,12 @@ public class AdMobRenderer implements IRenderer, AdListener, RendererTimer.IRend
 			failWithError(this.params.errorCode, this.params.errorString);
 			return;
 		}
-
 		ICreativeRendition cr = adInstance.getActiveCreativeRendition();
 
 		if (cr.getBaseUnit().toLowerCase().contains("interstitial")
 				|| cr.getContentType().toLowerCase().contains("interstitial")) {
+
+			isInterstitial =true;
 			// interstitial
 			if (slot.getTimePositionClass() == this.constants.TIME_POSITION_CLASS_OVERLAY()) {
 				failWithError(this.constants.ERROR_INVALID_SLOT(),
@@ -90,11 +100,15 @@ public class AdMobRenderer implements IRenderer, AdListener, RendererTimer.IRend
 				return;
 			} else {
 				this.logger.debug("Interstitial Ad");
-				this.admobAdRequest = new AdRequest();
-				this.admobAd = new InterstitialAd(this.rendererContext.getActivity(),
-						this.params.publisherId, this.params.shortTimeout);
+
+				interstitial = new InterstitialAd(this.rendererContext.getActivity());
+				interstitial.setAdUnitId(this.params.publisherId);
+				//				interstitial.loadAd(adRequest);
+				//				this.admobAd = new InterstitialAd(this.rendererContext.getActivity(),
+				//						this.params.publisherId, this.params.shortTimeout);
 			}
 		} else {
+			isInterstitial = false;
 			// banner Ad
 			if (this.slot.getType() == this.constants.SLOT_TYPE_TEMPORAL()) {
 				if (cr.getDuration() <= 0.) {
@@ -106,10 +120,11 @@ public class AdMobRenderer implements IRenderer, AdListener, RendererTimer.IRend
 			}
 
 			if (this.params.searchString != null) {
+				isBanner = false;
+
 				// search Ad
 				this.logger.debug("Search Ad for string " + this.params.searchString);
-				SearchAdRequest searchAdRequest = new SearchAdRequest();
-				searchAdRequest.setQuery(this.params.searchString);
+				Builder searchAdRequest = new SearchAdRequest.Builder().setQuery(this.params.searchString);
 
 				if (this.params.backgroundColor != 0) {
 					searchAdRequest.setBackgroundColor(this.params.backgroundColor);
@@ -120,10 +135,11 @@ public class AdMobRenderer implements IRenderer, AdListener, RendererTimer.IRend
 				if (this.params.descriptionTextColor != 0) {
 					searchAdRequest.setDescriptionTextColor(this.params.descriptionTextColor);
 				}
-				this.admobAdRequest = searchAdRequest;
+				this.admobSearchAdRequest = searchAdRequest;
 			} else {
 				this.logger.debug("Banner Ad");
-				this.admobAdRequest = new AdRequest();
+				isBanner = true;
+				this.admobAdRequest = new AdRequest.Builder();
 			}
 
 			AdSize adSize = AdSize.BANNER;
@@ -157,37 +173,79 @@ public class AdMobRenderer implements IRenderer, AdListener, RendererTimer.IRend
 				}
 			}
 
-			this.admobAd = new AdView(this.rendererContext.getActivity(),adSize, this.params.publisherId);
-		}
+			//create searchAdView
+			this.admobSearchAdView = new SearchAdView(this.rendererContext.getActivity());
+			this.admobSearchAdView.setAdUnitId(this.params.publisherId);
+			this.admobSearchAdView.setAdSize(adSize);
 
-		if (this.params.dateOfBirth != null) {
-			this.admobAdRequest.setBirthday(this.params.dateOfBirth);
-		}
-		if (this.params.gender != null) {
-			this.admobAdRequest.setGender(this.params.gender);
-		}
-		if (this.params.keywords != null) {
-			this.admobAdRequest.addKeyword(this.params.keywords);
-		}
-		if (this.params.testDeviceIds != null && !this.params.testDeviceIds.isEmpty()) {
-			Set<String> testDeviceIds = new HashSet<String>(this.params.testDeviceIds);
-			testDeviceIds.add(AdRequest.TEST_EMULATOR);
-			this.admobAdRequest.setTestDevices(testDeviceIds);
-		}
-		if (this.rendererContext.getLocation() != null) {
-			this.admobAdRequest.setLocation(this.rendererContext.getLocation());
-		}
+			//create non searchRequest adView
+			this.admobAd = new AdView(this.rendererContext.getActivity());
+			this.admobAd.setAdSize(adSize);
+			this.admobAd.setAdUnitId(this.params.publisherId);
 
+		}
+		setAdParameters(this.params);
+
+		this.admobSearchAdView.setAdListener(this);
 		this.admobAd.setAdListener(this);
 		this.rendererContext.setRendererCapability(this.constants.EVENT_AD_CLICK(),
 				this.constants.CAPABILITY_STATUS_OFF());
 		this.rendererContext.dispatchEvent(this.constants.EVENT_AD_LOADED());
 	}
 
+	private void setAdParameters(Parameters params) {
+
+		//set banner stuff
+		if(isBanner) {
+			if (this.params.dateOfBirth != null) {
+				this.admobAdRequest.setBirthday(this.params.dateOfBirth.getTime());
+			}
+			if (this.params.gender != AdRequest.GENDER_UNKNOWN) {
+				this.admobAdRequest.setGender(this.params.gender);
+			}
+			if (this.params.keywords != null) {
+				this.admobAdRequest.addKeyword(this.params.keywords);
+			}
+			if (this.params.testDeviceIds != null && !this.params.testDeviceIds.isEmpty()) {
+				Set<String> testDeviceIds = new HashSet<String>(this.params.testDeviceIds);
+				this.admobAdRequest.addTestDevice(AdRequest.DEVICE_ID_EMULATOR);
+				for(String testDeviceId : testDeviceIds) {
+					this.admobAdRequest.addTestDevice(testDeviceId);	
+				}
+			}
+			if (this.rendererContext.getLocation() != null) {
+				this.admobAdRequest.setLocation(this.rendererContext.getLocation());
+			}
+		} else {
+			//set searchRequestAd stuff
+			if (this.params.testDeviceIds != null && !this.params.testDeviceIds.isEmpty()) {
+				Set<String> testDeviceIds = new HashSet<String>(this.params.testDeviceIds);
+				this.admobSearchAdRequest.addTestDevice(AdRequest.DEVICE_ID_EMULATOR);
+				for(String testDeviceId : testDeviceIds) {
+					this.admobAdRequest.addTestDevice(testDeviceId);	
+				}
+			}
+			if (this.rendererContext.getLocation() != null) {
+				this.admobSearchAdRequest.setLocation(this.rendererContext.getLocation());
+			}
+		}
+
+	}
+
 	@Override
 	public void start() {
 		this.logger.info("start");
-		admobAd.loadAd(admobAdRequest);
+		//this can be either an interstitial ad, or regular ad, and searchAd or BannerAd
+
+		if(isInterstitial) {
+			this.interstitial.loadAd(admobAdRequest.build());
+		} else {
+			if(isBanner) {
+				admobAd.loadAd(admobAdRequest.build());
+			} else {
+				this.admobSearchAdView.loadAd(admobSearchAdRequest.build());
+			}
+		}
 	}
 
 	@Override
@@ -214,7 +272,7 @@ public class AdMobRenderer implements IRenderer, AdListener, RendererTimer.IRend
 		}
 
 		// resume when interstitial dismissed
-		if (this.admobAd instanceof InterstitialAd && interstitialDismissed) {
+		if (this.interstitial instanceof InterstitialAd && interstitialDismissed) {
 			this.stop();
 		}
 	}
@@ -226,9 +284,11 @@ public class AdMobRenderer implements IRenderer, AdListener, RendererTimer.IRend
 			this.logger.debug("Renderer already stopped");
 			return;
 		}
-		if (this.admobAd != null && !this.admobAd.isReady()) {
-			this.admobAd.stopLoading();
-		}
+
+		//might not need this anymore.
+		//		if (this.admobAd != null && !this.admobAd.isReady()) {
+		//			this.admobAd.stopLoading();
+		//		}
 
 		rendererContext.dispatchEvent(this.constants.EVENT_AD_STOPPED());
 	}
@@ -303,7 +363,7 @@ public class AdMobRenderer implements IRenderer, AdListener, RendererTimer.IRend
 					final FrameLayout.LayoutParams p = new FrameLayout.LayoutParams(
 							ViewGroup.LayoutParams.WRAP_CONTENT,
 							ViewGroup.LayoutParams.WRAP_CONTENT
-					);
+							);
 					if (slot.getTimePositionClass() == constants.TIME_POSITION_CLASS_OVERLAY()) {
 						// overlay
 						DisplayMetrics dm = rendererContext.getActivity().getResources().getDisplayMetrics();
@@ -369,25 +429,41 @@ public class AdMobRenderer implements IRenderer, AdListener, RendererTimer.IRend
 				adView.bringToFront();
 			} else {
 				// Interstitial Ad
-				InterstitialAd interstitialAd = (InterstitialAd)admobAd;
-				interstitialAd.show();
+				//				InterstitialAd interstitialAd = (InterstitialAd)admobAd;
+				//				interstitialAd.show();
+				interstitial.show();
+
 			}
 			rendererContext.dispatchEvent(constants.EVENT_AD_STARTED());
 		}
 	}
+	/*
+	 * 
+	 * void	 onAdClosed()
+Called when the user is about to return to the application after clicking on an ad.
+void	 onAdFailedToLoad(int errorCode)
+Called when an ad request failed.
+void	 onAdLeftApplication()
+Called when an ad leaves the application (e.g., to go to the browser).
+void	 onAdLoaded()
+Called when an ad is received.
+void	 onAdOpened()
+Called when an ad opens an overlay that covers the screen.
+
+	 */
 
 	@Override
-	public void onReceiveAd(Ad ad) {
+	public void onAdLoaded() {
 		this.logger.debug("onReceiveAd");
 
 		if (this.rendererState.get() == RENDERER_STATE_STOPPED) {
 			this.logger.warn("Renderer already stopped");
 			return;
 		}
-		if (ad != this.admobAd) {
-			this.logger.warn("Unknown received ad");
-			return;
-		}
+		//		if (ad != this.admobAd) {
+		//			this.logger.warn("Unknown received ad");
+		//			return;
+		//		}
 		if (!this.firstAd) {
 			this.logger.debug("Auto refreshed ad");
 			return;
@@ -405,47 +481,50 @@ public class AdMobRenderer implements IRenderer, AdListener, RendererTimer.IRend
 	}
 
 	@Override
-	public void onFailedToReceiveAd(Ad ad, AdRequest.ErrorCode errorCode) {
+	public void onAdFailedToLoad(int errorCode) {
 		this.logger.debug("onFailedToReceiveAd");
 		if (this.rendererState.get() == RENDERER_STATE_STOPPED) {
 			this.logger.warn("Renderer already stopped");
 			return;
 		}
 		switch (errorCode) {
-			case NO_FILL:
-				failWithError(this.constants.ERROR_NO_AD_AVAILABLE(), errorCode.toString());
-				break;
-			case NETWORK_ERROR:
-				failWithError(this.constants.ERROR_IO(), errorCode.toString());
-				break;
-			case INVALID_REQUEST:
-			case INTERNAL_ERROR:
-			default:
-				failWithError(this.constants.ERROR_3P_COMPONENT(), errorCode.toString());
-				break;
+		case AdRequest.ERROR_CODE_NO_FILL:
+			failWithError(this.constants.ERROR_NO_AD_AVAILABLE(), String.valueOf(errorCode));
+			break;
+		case AdRequest.ERROR_CODE_NETWORK_ERROR:
+			failWithError(this.constants.ERROR_IO(), String.valueOf(errorCode));
+			break;
+		case AdRequest.ERROR_CODE_INVALID_REQUEST:
+		case AdRequest.ERROR_CODE_INTERNAL_ERROR:
+		default:
+			failWithError(this.constants.ERROR_3P_COMPONENT(), String.valueOf(errorCode));
+			break;
 		}
 	}
 
+
 	@Override
-	public void onPresentScreen(Ad ad) {
+	public void onAdOpened() {
 		this.logger.debug("onPresentScreen");
 	}
 
 	@Override
-	public void onDismissScreen(Ad ad) {
+	public void onAdClosed() {
 		this.logger.debug("onDismissScreen");
 		if (this.rendererState.get() == RENDERER_STATE_STOPPED) {
 			this.logger.warn("Renderer already stopped");
 			return;
 		}
-		if (ad == this.admobAd && this.admobAd instanceof InterstitialAd) {
+
+		if(!isBanner) {
 			this.interstitialDismissed = true;
 			// stop will be called by resume() later
 		}
+
 	}
 
 	@Override
-	public void onLeaveApplication(Ad ad) {
+	public void onAdLeftApplication() {
 		this.logger.debug("onLeaveApplication");
 	}
 

@@ -1,8 +1,10 @@
 package tv.freewheel.renderers.admob;
 
-import com.google.ads.AdRequest;
-import com.google.ads.AdSize;
 import org.json.JSONObject;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+
 import tv.freewheel.ad.interfaces.IConstants;
 import tv.freewheel.utils.Logger;
 import tv.freewheel.utils.renderer.ParamParser;
@@ -36,7 +38,8 @@ public class Parameters {
 
 	public String publisherId = null;
 	public GregorianCalendar dateOfBirth = null;
-	public AdRequest.Gender gender = null;
+	
+	public int gender = AdRequest.GENDER_UNKNOWN;
 	public String keywords = null;
 	public String searchString = null;
 	public int backgroundColor = 0;
@@ -49,7 +52,7 @@ public class Parameters {
 	public int marginHeight = 0;
 
 	public AdSize bannerSize = null;
-	public static final AdSize[] adSizes = {AdSize.IAB_LEADERBOARD, AdSize.IAB_BANNER, AdSize.IAB_MRECT, AdSize.BANNER};
+	public static final AdSize[] adSizes = {AdSize.LEADERBOARD, AdSize.BANNER, AdSize.MEDIUM_RECTANGLE, AdSize.BANNER};
 
 	public String errorCode = null;
 	public String errorString = null;
@@ -67,7 +70,7 @@ public class Parameters {
 		p.dateOfBirth = pp.parseDate(p.constants.PARAMETER_DATE_OF_BIRTH(), p.dateOfBirth);
 		
 		String genderStr = pp.parseEnum(p.constants.PARAMETER_GENDER(), null, new String[]{PARAM_GENDER_MALE, PARAM_GENDER_FEMALE});
-		if(genderStr != null) p.gender = (genderStr == PARAM_GENDER_MALE ? AdRequest.Gender.MALE : AdRequest.Gender.FEMALE);
+		if(genderStr != null) p.gender = (genderStr == PARAM_GENDER_MALE ? AdRequest.GENDER_MALE: AdRequest.GENDER_FEMALE);
 		
 		p.headerTextColor = pp.parseColor(PARAM_HEADER_TEXT_COLOR, p.headerTextColor);
 		p.descriptionTextColor = pp.parseColor(PARAM_DESCRIPTION_TEXT_COLOR, p.descriptionTextColor);
@@ -84,11 +87,11 @@ public class Parameters {
 				new String[]{PARAM_BANNER, PARAM_IAB_MRECT, PARAM_IAB_BANNER, PARAM_IAB_LEADERBOARD});
 		if (bannerSizeStr != null) {
 			if (bannerSizeStr == PARAM_IAB_LEADERBOARD) {
-				p.bannerSize = AdSize.IAB_LEADERBOARD;
+				p.bannerSize = AdSize.LEADERBOARD;
 			} else if (bannerSizeStr == PARAM_IAB_BANNER) {
-				p.bannerSize = AdSize.IAB_BANNER;
+				p.bannerSize = AdSize.BANNER;
 			} else if (bannerSizeStr == PARAM_IAB_MRECT) {
-				p.bannerSize = AdSize.IAB_MRECT;
+				p.bannerSize = AdSize.MEDIUM_RECTANGLE;
 			} else {
 				p.bannerSize = AdSize.BANNER;
 			}
